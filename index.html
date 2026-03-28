@@ -12,1386 +12,292 @@
 </head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atlanta, Georgia — Our Trip</title>
+<title>Our Next Chapter — Atlanta 🌸</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Noto+Serif+Display:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --parchment: #f2ebe3;
-    --parchment-deep: #e8dfd5;
-    --gold: #b89d82;
-    --gold-light: #f0e9e0;
-    --gold-dark: #8a7260;
-    --charcoal: #3d3530;
-    --charcoal-mid: #5c524b;
-    --ink: #2a2420;
-    --warm-white: #faf7f4;
-    --cream: #f5f0eb;
-    --rose: #c9a49a;
-    --rose-dark: #9e7168;
-    --text: #3a3028;
-    --text-soft: #7d6e65;
-    --border: rgba(160,135,115,0.15);
-    --shadow: 0 4px 24px rgba(80,60,45,0.07);
-    --shadow-hover: 0 8px 40px rgba(80,60,45,0.13);
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Jost', sans-serif;
-    background: #f5f0eb;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/003e%3CfeColorMatrix type='saturate' values='0'/003e%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/003e%3C/svg003e");
-    color: var(--text);
-    min-height: 100vh;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    position: relative;
-    width: 100%;
-    height: 100svh;
-    min-height: 560px;
-    max-height: 860px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 3.5rem;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background-image: url('Gemini_Generated_Image_oglkyboglkyboglk.png');
-    background-size: cover;
-    background-position: center 20%;
-    background-repeat: no-repeat;
-    image-rendering: -webkit-optimize-contrast;
-    transform: scale(1.04);
-    transition: transform 8s ease-out;
-    animation: heroZoom 8s ease-out forwards;
-  }
-
-  @keyframes heroZoom {
-    from { transform: scale(1.08); }
-    to   { transform: scale(1.0); }
-  }
-
-  /* layered gradient: transparent at top, dark at bottom */
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(30,22,18,0.05) 0%,
-        rgba(30,22,18,0.04) 30%,
-        rgba(30,22,18,0.45) 65%,
-        rgba(30,22,18,0.72) 100%
-      );
-  }
-
-  /* light vignette on sides */
-  .hero-vignette {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at center, transparent 50%, rgba(30,22,18,0.22) 100%);
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    animation: fadeUp 1.2s ease-out 0.3s both;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-eyebrow {
-    font-family: 'Jost', sans-serif;
-    font-size: 10px;
-    font-weight: 300;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.9rem;
-    opacity: 0.9;
-  }
-
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 8vw, 5.5rem);
-    font-weight: 400;
-    color: #f7ede0;
-    line-height: 1.0;
-    letter-spacing: -0.5px;
-    margin-bottom: 0.6rem;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: #f0d9be;
-  }
-
-  .divider-ornament {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin: 1rem 0 0.9rem;
-  }
-
-  .divider-ornament::before,
-  .divider-ornament::after {
-    content: '';
-    width: 60px;
-    height: 0.5px;
-    background: linear-gradient(to right, transparent, var(--gold));
-    opacity: 0.6;
-  }
-  .divider-ornament::after {
-    background: linear-gradient(to left, transparent, var(--gold));
-  }
-
-  .ornament-diamond {
-    width: 6px; height: 6px;
-    background: #b89d82;
-    transform: rotate(45deg);
-    opacity: 0.75;
-  }
-
-  .hero-sub {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1.05rem;
-    font-weight: 300;
-    color: rgba(247,237,224,0.7);
-    letter-spacing: 0.5px;
-  }
-
-  /* ── NAV ── */
-  .nav {
-    background: rgba(250,247,244,0.96);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 1px 20px rgba(80,60,45,0.05);
-  }
-
-  .nav-btn {
-    background: none;
-    border: none;
-    padding: 1.1rem 1.5rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-soft);
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
-    white-space: nowrap;
-    position: relative;
-  }
-
-  .nav-btn::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 50%; right: 50%;
-    height: 2px;
-    background: #b89d82;
-    transition: left 0.3s ease, right 0.3s ease;
-  }
-
-  .nav-btn:hover { color: var(--charcoal); }
-  .nav-btn:hover::after { left: 10%; right: 10%; }
-
-  .nav-btn.active {
-    color: var(--charcoal);
-    font-weight: 500;
-  }
-  .nav-btn.active::after { left: 0; right: 0; }
-
-  /* ── LAYOUT ── */
-  .container { max-width: 880px; margin: 0 auto; padding: 2.8rem 1.5rem 4rem; }
-
-  .tab { display: none; }
-  .tab.active {
-    display: block;
-    animation: tabIn 0.4s ease-out both;
-  }
-
-  @keyframes tabIn {
-    from { opacity: 0; transform: translateY(14px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .section-heading {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.6rem;
-    font-weight: 400;
-    color: var(--charcoal);
-    margin-bottom: 0.4rem;
-    line-height: 1.1;
-  }
-
-  .section-heading em {
-    font-style: italic;
-    color: var(--gold-dark);
-  }
-
-  .section-intro {
-    font-size: 13.5px;
-    font-weight: 300;
-    color: var(--text-soft);
-    margin-bottom: 2.2rem;
-    line-height: 1.8;
-    letter-spacing: 0.2px;
-    max-width: 560px;
-  }
-
-  /* ── ITINERARY ── */
-  .day-card {
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    margin-bottom: 1.4rem;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .day-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-hover);
-  }
-
-  .day-header {
-    background: linear-gradient(135deg, #2a1c14 0%, #4a3020 60%, #2a1c14 100%);
-    padding: 1.1rem 1.6rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .day-header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='8' fill='none' stroke='rgba(201,168,76,0.06)' stroke-width='1'/%3E%3C/svg%3E") repeat;
-  }
-
-  .day-badge {
-    background: rgba(201,168,76,0.2);
-    border: 1px solid rgba(201,168,76,0.35);
-    border-radius: 6px;
-    padding: 0.3rem 0.8rem;
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: var(--gold);
-    text-transform: uppercase;
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    position: relative;
-  }
-
-  .day-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem;
-    font-weight: 400;
-    color: #f7ede0;
-    font-style: italic;
-    position: relative;
-  }
-
-  .timeline {
-    padding: 1.4rem 1.6rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .timeline-item {
-    display: grid;
-    grid-template-columns: 60px 12px 1fr;
-    gap: 0 14px;
-    padding-bottom: 1.3rem;
-  }
-
-  .timeline-item:last-child { padding-bottom: 0; }
-
-  .t-time {
-    font-size: 11px;
-    color: var(--gold-dark);
-    font-family: 'Jost', sans-serif;
-    letter-spacing: 0.5px;
-    font-weight: 400;
-    padding-top: 3px;
-    text-align: right;
-  }
-
-  .t-line-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .t-dot {
-    width: 9px; height: 9px;
-    background: #b89d82;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 3px;
-    box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .timeline-item:hover .t-dot {
-    transform: scale(1.3);
-    box-shadow: 0 0 0 5px rgba(201,168,76,0.2);
-  }
-
-  .t-line {
-    flex: 1;
-    width: 1px;
-    background: var(--border);
-    margin-top: 5px;
-  }
-
-  .timeline-item:last-child .t-line { display: none; }
-
-  .t-name {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--charcoal);
-    letter-spacing: 0.2px;
-  }
-
-  .t-desc {
-    font-size: 12.5px;
-    color: var(--text-soft);
-    margin-top: 3px;
-    line-height: 1.65;
-    font-weight: 300;
-  }
-
-  /* ── RESTAURANTS ── */
-  .filter-bar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.8rem;
-  }
-  .filter-btn {
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 0.45rem 1rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    color: var(--text-soft);
-    cursor: pointer;
-    transition: all 0.25s ease;
-  }
-  .filter-btn:hover { border-color: var(--gold); color: var(--charcoal); }
-  .filter-btn.active {
-    background: #9e7168;
-    color: var(--gold-light);
-    border-color: var(--charcoal);
-    font-weight: 500;
-  }
-
-  .resto-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.1rem;
-  }
-
-  .resto-card {
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1.4rem;
-    box-shadow: var(--shadow);
-    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .resto-card.hidden { display: none; }
-
-  .resto-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark));
-    opacity: 0;
-    transition: opacity 0.35s ease;
-  }
-
-  .resto-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-    border-color: rgba(201,168,76,0.35);
-  }
-
-  .resto-card:hover::before { opacity: 1; }
-
-  .resto-tag {
-    display: inline-block;
-    background: var(--gold-light);
-    color: var(--gold-dark);
-    font-size: 9.5px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 3px 9px;
-    border-radius: 4px;
-    margin-bottom: 0.7rem;
-    font-family: 'Jost', sans-serif;
-    font-weight: 500;
-    border: 1px solid rgba(201,168,76,0.25);
-    align-self: flex-start;
-  }
-
-  .resto-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    color: var(--charcoal);
-    margin-bottom: 0.4rem;
-    line-height: 1.2;
-  }
-
-  .resto-review {
-    font-size: 12.5px;
-    color: var(--text-soft);
-    line-height: 1.65;
-    font-weight: 300;
-    font-style: italic;
-    margin-top: 0.3rem;
-  }
-
-  .resto-stars {
-    margin-top: 0.8rem;
-    font-size: 14px;
-    letter-spacing: 2px;
-  }
-
-  .resto-map-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    margin-top: 0.8rem;
-    background: #9e7168;
-    color: var(--gold-light);
-    border: none;
-    border-radius: 6px;
-    padding: 0.5rem 0.9rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-    align-self: flex-start;
-  }
-  .resto-map-btn:hover {
-    background: var(--gold-dark);
-    transform: translateY(-1px);
-  }
-
-  .resto-comments {
-    margin-top: auto;
-    padding-top: 0.9rem;
-    border-top: 1px solid var(--border);
-    margin-top: 1rem;
-  }
-  .resto-comments-title {
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-soft);
-    font-family: 'Jost', sans-serif;
-    margin-bottom: 0.5rem;
-  }
-  .resto-comment-list {
-    max-height: 120px;
-    overflow-y: auto;
-    margin-bottom: 0.5rem;
-  }
-  .resto-comment-item {
-    font-size: 12px;
-    color: var(--text);
-    line-height: 1.5;
-    padding: 0.35rem 0;
-    border-bottom: 1px solid rgba(160,120,80,0.08);
-    font-weight: 300;
-  }
-  .resto-comment-form {
-    display: flex;
-    gap: 0.4rem;
-  }
-  .resto-comment-input {
-    flex: 1;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 0.4rem 0.6rem;
-    font-size: 11.5px;
-    font-family: 'Jost', sans-serif;
-    background: #f5f0eb;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/003e%3CfeColorMatrix type='saturate' values='0'/003e%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/003e%3C/svg003e");
-    color: var(--text);
-    outline: none;
-    transition: border-color 0.2s ease;
-  }
-  .resto-comment-input:focus { border-color: var(--gold); }
-  .resto-comment-input::placeholder { color: rgba(107,80,64,0.4); }
-  .resto-comment-submit {
-    background: #b89d82;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 0.4rem 0.7rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.2s ease;
-  }
-  .resto-comment-submit:hover { background: var(--gold-dark); }
-
-  /* ── THINGS TO DO ── */
-  .todo-filter-bar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.8rem;
-  }
-  .todo-filter-btn {
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 0.45rem 1rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    color: var(--text-soft);
-    cursor: pointer;
-    transition: all 0.25s ease;
-  }
-  .todo-filter-btn:hover { border-color: var(--gold); color: var(--charcoal); }
-  .todo-filter-btn.active {
-    background: #9e7168;
-    color: var(--gold-light);
-    border-color: var(--charcoal);
-    font-weight: 500;
-  }
-
-  .todo-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.1rem;
-  }
-
-  .todo-card {
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1.4rem;
-    box-shadow: var(--shadow);
-    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  .todo-card.hidden { display: none; }
-  .todo-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark));
-    opacity: 0;
-    transition: opacity 0.35s ease;
-  }
-  .todo-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-    border-color: rgba(201,168,76,0.35);
-  }
-  .todo-card:hover::before { opacity: 1; }
-
-  .todo-tag {
-    display: inline-block;
-    background: var(--gold-light);
-    color: var(--gold-dark);
-    font-size: 9.5px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 3px 9px;
-    border-radius: 4px;
-    margin-bottom: 0.7rem;
-    font-family: 'Jost', sans-serif;
-    font-weight: 500;
-    border: 1px solid rgba(201,168,76,0.25);
-    align-self: flex-start;
-  }
-
-  .todo-header-row {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 0.5rem;
-    margin-bottom: 0.3rem;
-  }
-
-  .todo-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    color: var(--charcoal);
-    line-height: 1.2;
-  }
-
-  .todo-price {
-    display: inline-block;
-    font-family: 'Jost', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    padding: 3px 9px;
-    border-radius: 5px;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .todo-price.paid {
-    background: rgba(201,168,76,0.15);
-    color: var(--gold-dark);
-    border: 1px solid rgba(201,168,76,0.3);
-  }
-  .todo-price.free {
-    background: rgba(46,139,87,0.12);
-    color: #2e7d52;
-    border: 1px solid rgba(46,139,87,0.25);
-  }
-
-  .todo-stars {
-    margin-top: 0.5rem;
-    font-size: 14px;
-    letter-spacing: 2px;
-  }
-
-  .todo-review {
-    font-size: 12.5px;
-    color: var(--text-soft);
-    line-height: 1.65;
-    font-weight: 300;
-    font-style: italic;
-    margin-top: 0.5rem;
-  }
-
-  .todo-map-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    margin-top: 0.8rem;
-    background: #9e7168;
-    color: var(--gold-light);
-    border: none;
-    border-radius: 6px;
-    padding: 0.5rem 0.9rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-    align-self: flex-start;
-  }
-  .todo-map-btn:hover {
-    background: var(--gold-dark);
-    transform: translateY(-1px);
-  }
-
-  .todo-comments {
-    margin-top: auto;
-    padding-top: 0.9rem;
-    border-top: 1px solid var(--border);
-    margin-top: 1rem;
-  }
-  .todo-comments-title {
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-soft);
-    font-family: 'Jost', sans-serif;
-    margin-bottom: 0.5rem;
-  }
-  .todo-comment-list {
-    max-height: 120px;
-    overflow-y: auto;
-    margin-bottom: 0.5rem;
-  }
-  .todo-comment-item {
-    font-size: 12px;
-    color: var(--text);
-    line-height: 1.5;
-    padding: 0.35rem 0;
-    border-bottom: 1px solid rgba(160,120,80,0.08);
-    font-weight: 300;
-  }
-  .todo-comment-form {
-    display: flex;
-    gap: 0.4rem;
-  }
-  .todo-comment-input {
-    flex: 1;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 0.4rem 0.6rem;
-    font-size: 11.5px;
-    font-family: 'Jost', sans-serif;
-    background: #f5f0eb;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/003e%3CfeColorMatrix type='saturate' values='0'/003e%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/003e%3C/svg003e");
-    color: var(--text);
-    outline: none;
-    transition: border-color 0.2s ease;
-  }
-  .todo-comment-input:focus { border-color: var(--gold); }
-  .todo-comment-input::placeholder { color: rgba(107,80,64,0.4); }
-  .todo-comment-submit {
-    background: #b89d82;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 0.4rem 0.7rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.2s ease;
-  }
-  .todo-comment-submit:hover { background: var(--gold-dark); }
-
-  /* ── STAY ── */
-  .hotel-hero {
-    background: linear-gradient(155deg, #1c1208 0%, #2e1e10 50%, #1c1208 100%);
-    border-radius: 18px;
-    padding: 2.8rem;
-    margin-bottom: 1.3rem;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 8px 40px rgba(28,18,8,0.3);
-    transition: transform 0.4s ease;
-  }
-
-  .hotel-hero:hover { transform: translateY(-3px); }
-
-  .hotel-hero::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 220px; height: 220px;
-    border-radius: 50%;
-    border: 40px solid rgba(201,168,76,0.07);
-  }
-
-  .hotel-hero::after {
-    content: '';
-    position: absolute;
-    bottom: -40px; left: -40px;
-    width: 160px; height: 160px;
-    border-radius: 50%;
-    border: 30px solid rgba(201,168,76,0.05);
-  }
-
-  .hotel-eyebrow {
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: var(--gold);
-    text-transform: uppercase;
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    margin-bottom: 0.6rem;
-    position: relative;
-  }
-
-  .hotel-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.1rem;
-    font-weight: 400;
-    color: #f7ede0;
-    margin-bottom: 0.6rem;
-    position: relative;
-  }
-
-  .hotel-desc {
-    font-size: 13.5px;
-    color: rgba(247,237,224,0.6);
-    line-height: 1.75;
-    max-width: 480px;
-    font-weight: 300;
-    position: relative;
-  }
-
-  .hotel-meta {
-    display: flex;
-    gap: 2rem;
-    margin-top: 1.8rem;
-    flex-wrap: wrap;
-    position: relative;
-  }
-
-  .hm-label {
-    font-size: 9.5px;
-    letter-spacing: 2px;
-    color: rgba(247,237,224,0.35);
-    text-transform: uppercase;
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-  }
-
-  .hm-value {
-    font-size: 14.5px;
-    color: #f7ede0;
-    font-weight: 400;
-    margin-top: 3px;
-    font-family: 'Cormorant Garamond', serif;
-  }
-
-  .amenities-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.9rem;
-    margin-top: 1.3rem;
-  }
-
-  .amenity {
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.1rem 1rem;
-    text-align: center;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-    cursor: default;
-  }
-
-  .amenity:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: var(--shadow-hover);
-    background: var(--gold-light);
-  }
-
-  .amenity-icon {
-    font-size: 20px;
-    transition: transform 0.3s ease;
-  }
-
-  .amenity:hover .amenity-icon { transform: scale(1.2); }
-
-  .amenity-name {
-    font-size: 11.5px;
-    color: var(--text-soft);
-    margin-top: 6px;
-    font-weight: 300;
-    letter-spacing: 0.3px;
-  }
-
-  /* ── MAP ── */
-  #leaflet-map {
-    width: 100%;
-    height: 480px;
-    border-radius: 18px;
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-    margin-bottom: 1rem;
-    z-index: 1;
-  }
-  .map-legend {
-    text-align: center;
-    font-family: 'Jost', sans-serif;
-    font-size: 13px;
-    color: var(--text-soft);
-    margin-bottom: 1.8rem;
-    letter-spacing: 0.3px;
-  }
-  .map-legend span { margin: 0 0.6rem; }
-
-  .map-placeholder {
-    background: linear-gradient(135deg, #ede0cc, #d8c9b0);
-    border-radius: 18px;
-    height: 280px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 0.9rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-  }
-
-  .map-placeholder::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%);
-  }
-
-  .map-pin {
-    font-size: 44px;
-    animation: pinBounce 2.5s ease-in-out infinite;
-    position: relative;
-  }
-
-  @keyframes pinBounce {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-8px); }
-  }
-
-  .map-label {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    color: var(--charcoal);
-    font-style: italic;
-    position: relative;
-  }
-
-  .map-sub {
-    font-size: 12px;
-    color: var(--text-soft);
-    font-weight: 300;
-    position: relative;
-  }
-
-  .map-open-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #9e7168;
-    color: var(--gold-light);
-    border: none;
-    border-radius: 8px;
-    padding: 0.7rem 1.4rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    font-weight: 400;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-  }
-
-  .map-open-btn:hover {
-    background: var(--gold-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(154,114,48,0.35);
-  }
-
-  .transport-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .transport-card {
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.2rem 1.4rem;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .transport-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-hover);
-  }
-
-  .tc-label {
-    font-size: 9.5px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold-dark);
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    margin-bottom: 0.5rem;
-  }
-
-  .tc-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: var(--charcoal);
-    margin-bottom: 4px;
-  }
-
-  .tc-desc {
-    font-size: 12.5px;
-    color: var(--text-soft);
-    line-height: 1.65;
-    font-weight: 300;
-  }
-
-  /* ── THIN RULE ── */
-  .thin-rule {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 2rem 0;
-  }
-
-  /* ── ITINERARY NOTE & LINK ── */
-  .t-note {
-    font-size: 12px;
-    color: #9e7168;
-    margin-top: 5px;
-    line-height: 1.6;
-    font-weight: 400;
-    font-style: italic;
-    background: rgba(201,119,138,0.08);
-    border-left: 2px solid var(--rose);
-    padding: 4px 10px;
-    border-radius: 0 6px 6px 0;
-  }
-
-  .itin-link {
-    color: var(--gold-dark);
-    text-decoration: underline;
-    text-decoration-color: rgba(154,114,48,0.35);
-    text-underline-offset: 2px;
-    font-weight: 400;
-    transition: color 0.2s ease, text-decoration-color 0.2s ease;
-  }
-  .itin-link:hover {
-    color: var(--charcoal);
-    text-decoration-color: var(--charcoal);
-  }
-
-  /* ── TBD EDITABLE CARDS ── */
-  .tbd-editable {
-    margin-top: 6px;
-  }
-
-  .tbd-display {
-    border: 1.5px dashed rgba(201,168,76,0.4);
-    border-radius: 10px;
-    padding: 0.7rem 1rem;
-    background: rgba(245,234,216,0.45);
-    cursor: pointer;
-    transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-    min-height: 42px;
-    display: flex;
-    align-items: center;
-  }
-
-  .tbd-display:hover {
-    border-color: var(--gold);
-    background: rgba(240,228,192,0.55);
-    box-shadow: 0 2px 12px rgba(201,168,76,0.1);
-  }
-
-  .tbd-placeholder {
-    font-size: 12.5px;
-    color: var(--text-soft);
-    font-style: italic;
-    font-weight: 300;
-    opacity: 0.8;
-  }
-
-  .tbd-saved-text {
-    font-size: 13px;
-    color: var(--charcoal);
-    line-height: 1.6;
-    font-weight: 400;
-    white-space: pre-wrap;
-    word-break: break-word;
-  }
-
-  .tbd-display.has-text .tbd-placeholder { display: none; }
-  .tbd-display:not(.has-text) .tbd-saved-text { display: none; }
-
-  .tbd-movie {
-    background: rgba(42,36,32,0.04);
-    border-color: rgba(107,80,64,0.25);
-  }
-  .tbd-movie:hover {
-    border-color: var(--charcoal-mid);
-    background: rgba(42,36,32,0.08);
-  }
-
-  .tbd-input {
-    display: none;
-    width: 100%;
-    border: 1.5px solid var(--gold);
-    border-radius: 10px;
-    padding: 0.7rem 1rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 13px;
-    color: var(--text);
-    background: var(--warm-white);
-    outline: none;
-    resize: vertical;
-    min-height: 60px;
-    line-height: 1.6;
-    box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
-    transition: box-shadow 0.2s ease;
-  }
-  .tbd-input:focus {
-    box-shadow: 0 0 0 4px rgba(201,168,76,0.2);
-  }
-  .tbd-input.tbd-large {
-    min-height: 100px;
-  }
-
-  .tbd-editable.editing .tbd-display { display: none; }
-  .tbd-editable.editing .tbd-input { display: block; }
-
-  /* ── MEMORIES ── */
-  .memories-hero {
-    background: linear-gradient(160deg, #4a403a 0%, #6b5e56 100%);
-    border-radius: 20px;
-    padding: 2.5rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .memories-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1' fill='rgba(201,168,76,0.07)'/%3E%3C/svg%3E") repeat;
-  }
-  .memories-hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    color: var(--parchment);
-    font-style: italic;
-    position: relative;
-    margin-bottom: 0.4rem;
-  }
-  .memories-hero-sub {
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: rgba(245,234,216,0.45);
-    text-transform: uppercase;
-    position: relative;
-    font-weight: 300;
-  }
-
-  .upload-zone {
-    border: 2px dashed rgba(201,168,76,0.4);
-    border-radius: 16px;
-    padding: 2.5rem;
-    text-align: center;
-    background: rgba(245,234,216,0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-bottom: 2rem;
-    position: relative;
-  }
-  .upload-zone:hover, .upload-zone.drag-over {
-    border-color: var(--gold);
-    background: rgba(245,234,216,0.55);
-    transform: scale(1.01);
-  }
-  .upload-zone input[type="file"] {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-  }
-  .upload-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
-  .upload-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    color: var(--charcoal);
-    margin-bottom: 0.3rem;
-  }
-  .upload-sub { font-size: 12px; color: var(--text-soft); letter-spacing: 0.5px; }
-
-  .mem-name-row {
-    display: flex;
-    gap: 0.8rem;
-    margin-bottom: 1.5rem;
-    align-items: center;
-  }
-  .mem-name-input {
-    flex: 1;
-    padding: 0.65rem 1rem;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    font-family: 'Jost', sans-serif;
-    font-size: 13.5px;
-    background: var(--warm-white);
-    color: var(--text);
-    outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  }
-  .mem-name-input:focus {
-    border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
-  }
-  .mem-caption-input {
-    flex: 2;
-  }
-
-  .mem-board {
-    columns: 3;
-    column-gap: 1rem;
-    margin-top: 0.5rem;
-  }
-  @media (max-width: 700px) { .mem-board { columns: 2; } }
-  @media (max-width: 420px) { .mem-board { columns: 1; } }
-
-  .mem-item {
-    break-inside: avoid;
-    margin-bottom: 1rem;
-    border-radius: 14px;
-    overflow: hidden;
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-  }
-  .mem-item:hover { transform: translateY(-4px) rotate(0.5deg); box-shadow: var(--shadow-hover); }
-
-  .mem-item img, .mem-item video {
-    width: 100%;
-    display: block;
-    object-fit: cover;
-  }
-  .mem-item video { max-height: 280px; }
-
-  .mem-caption {
-    padding: 0.7rem 0.9rem 0.8rem;
-  }
-  .mem-caption-name {
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--gold-dark);
-    font-family: 'Jost', sans-serif;
-    font-weight: 500;
-    margin-bottom: 2px;
-  }
-  .mem-caption-text {
-    font-size: 12.5px;
-    color: var(--text-soft);
-    font-style: italic;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
-    line-height: 1.4;
-  }
-  .mem-delete {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background: rgba(42,28,16,0.6);
-    border: none;
-    border-radius: 50%;
-    width: 26px;
-    height: 26px;
-    color: white;
-    font-size: 13px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-  }
-  .mem-item:hover .mem-delete { opacity: 1; }
-
-  .mem-empty {
-    text-align: center;
-    padding: 3rem 1rem;
-    color: var(--text-soft);
-  }
-  .mem-empty-icon { font-size: 3rem; margin-bottom: 0.8rem; }
-  .mem-empty-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-style: italic;
-    color: var(--text-soft);
-  }
-
-  .mem-upload-btn {
-    background: #9e7168;
-    color: var(--gold-light);
-    border: none;
-    border-radius: 10px;
-    padding: 0.7rem 1.5rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .mem-upload-btn:hover { background: var(--gold-dark); transform: translateY(-1px); }
-
-  .mem-count {
-    font-size: 11px;
-    color: var(--text-soft);
-    letter-spacing: 1px;
-    text-align: center;
-    margin-bottom: 1.2rem;
-    font-family: 'Jost', sans-serif;
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 600px) {
-    .hero { max-height: 640px; }
-    .hero h1 { font-size: 2.8rem; }
-    .section-heading { font-size: 2rem; }
-    .resto-grid { grid-template-columns: 1fr; }
-    .todo-grid { grid-template-columns: 1fr; }
-    .amenities-grid { grid-template-columns: 1fr 1fr; }
-    .transport-grid { grid-template-columns: 1fr; }
-    .nav-btn { padding: 0.9rem 0.75rem; font-size: 9.5px; letter-spacing: 1px; }
-    .hotel-hero { padding: 1.8rem; }
-    .hotel-name { font-size: 1.6rem; }
-  }
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blush:#F2D7D9;--blush-deep:#e8b4b8;--blush-light:#fdf2f3;
+  --lavender:#E8DFF5;--lavender-deep:#c4b3e0;--lavender-light:#f5f0fc;
+  --sage:#D4E2D4;--sage-deep:#9ebf9e;--sage-light:#eef4ee;
+  --cream:#FFF9F5;--cream-deep:#f5ece3;
+  --rose-gold:#c4917b;--rose-gold-light:#e8c4b5;--rose-gold-dark:#9e6b57;
+  --charcoal:#3d2e2e;--charcoal-mid:#6b5656;
+  --ink:#2a1f1f;--text:#3a2828;--text-soft:#8a7070;
+  --warm-white:#fffbf8;
+  --border:rgba(196,145,123,0.15);
+  --shadow:0 4px 24px rgba(62,30,30,0.06);
+  --shadow-hover:0 12px 40px rgba(62,30,30,0.12);
+  --accent:#d4798b;--accent-dark:#b35e70;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Quicksand',sans-serif;
+  background:var(--cream);
+  background-image:radial-gradient(circle at 20% 50%,rgba(232,223,245,0.3) 0%,transparent 50%),
+                    radial-gradient(circle at 80% 20%,rgba(242,215,217,0.25) 0%,transparent 50%),
+                    radial-gradient(circle at 50% 80%,rgba(212,226,212,0.2) 0%,transparent 50%);
+  color:var(--text);min-height:100vh;
+}
+
+/* ══ CHERRY BLOSSOM ANIMATION ══ */
+.petals-container{position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden}
+.petal{position:absolute;width:12px;height:12px;background:radial-gradient(ellipse,#f8c8d4 0%,#f4a0b0 60%,transparent 70%);border-radius:50% 0 50% 0;opacity:0;animation:petalFall linear infinite}
+.petal:nth-child(odd){background:radial-gradient(ellipse,#f0d0e0 0%,#e8a0c0 60%,transparent 70%);width:10px;height:10px}
+.petal:nth-child(3n){background:radial-gradient(ellipse,#fff0f5 0%,#f8c0d0 60%,transparent 70%);width:8px;height:8px}
+@keyframes petalFall{
+  0%{transform:translateY(-20px) rotate(0deg) translateX(0);opacity:0}
+  10%{opacity:0.8}
+  90%{opacity:0.6}
+  100%{transform:translateY(100vh) rotate(360deg) translateX(80px);opacity:0}
+}
+
+/* ══ HERO ══ */
+.hero{position:relative;width:100%;height:100svh;min-height:560px;max-height:900px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:4rem}
+.hero-bg{position:absolute;inset:0;background-image:url('Gemini_Generated_Image_oglkyboglkyboglk.png');background-size:cover;background-position:center 20%;background-repeat:no-repeat;image-rendering:-webkit-optimize-contrast;animation:heroZoom 10s ease-out forwards}
+@keyframes heroZoom{from{transform:scale(1.1)}to{transform:scale(1.0)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(60,30,40,0.05) 0%,rgba(60,30,40,0.15) 40%,rgba(60,30,40,0.55) 70%,rgba(40,20,25,0.8) 100%)}
+.hero-vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 40%,rgba(40,20,25,0.3) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;animation:fadeUp 1.4s ease-out 0.3s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-eyebrow{font-family:'Quicksand',sans-serif;font-size:11px;font-weight:400;letter-spacing:5px;text-transform:uppercase;color:var(--rose-gold-light);margin-bottom:1rem;opacity:0.9}
+.hero h1{font-family:'Noto Serif Display',serif;font-size:clamp(2.8rem,8vw,5.5rem);font-weight:300;color:#fff5f0;line-height:1.05;letter-spacing:-0.5px;margin-bottom:0.5rem}
+.hero h1 em{font-style:italic;color:var(--blush)}
+.hero-korean{font-family:'Quicksand',sans-serif;font-size:13px;letter-spacing:4px;color:rgba(248,200,212,0.6);margin-bottom:1rem}
+.divider-ornament{display:flex;align-items:center;justify-content:center;gap:12px;margin:0.8rem 0}
+.divider-ornament::before,.divider-ornament::after{content:'';width:50px;height:0.5px;background:linear-gradient(to right,transparent,var(--blush));opacity:0.5}
+.divider-ornament::after{background:linear-gradient(to left,transparent,var(--blush))}
+.ornament-heart{color:var(--blush);font-size:10px;opacity:0.7}
+.hero-sub{font-family:'Caveat',cursive;font-size:1.4rem;color:rgba(255,245,240,0.75);letter-spacing:0.5px}
+
+/* ══ COUNTDOWN ══ */
+.countdown-bar{background:linear-gradient(135deg,rgba(212,121,139,0.15),rgba(196,145,123,0.12));backdrop-filter:blur(12px);padding:1rem 0;text-align:center;border-bottom:1px solid var(--border)}
+.countdown-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--text-soft);margin-bottom:6px}
+.countdown-timer{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+.cd-unit{text-align:center}
+.cd-num{font-family:'Noto Serif Display',serif;font-size:1.8rem;font-weight:400;color:var(--accent-dark);line-height:1}
+.cd-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-soft);margin-top:2px}
+
+/* ══ NAV ══ */
+.nav{background:rgba(255,251,248,0.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);display:flex;justify-content:center;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 1px 20px rgba(62,30,30,0.04)}
+.nav-btn{background:none;border:none;padding:1rem 1.2rem;font-family:'Quicksand',sans-serif;font-size:10.5px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text-soft);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.3s ease;white-space:nowrap;position:relative}
+.nav-btn::after{content:'';position:absolute;bottom:0;left:50%;right:50%;height:2px;background:var(--accent);transition:left 0.3s,right 0.3s;border-radius:2px}
+.nav-btn:hover{color:var(--charcoal)}
+.nav-btn:hover::after{left:15%;right:15%}
+.nav-btn.active{color:var(--accent-dark);font-weight:600}
+.nav-btn.active::after{left:0;right:0}
+
+/* ══ LAYOUT ══ */
+.container{max-width:880px;margin:0 auto;padding:2.8rem 1.5rem 4rem}
+.tab{display:none}.tab.active{display:block;animation:tabIn 0.45s ease-out both}
+@keyframes tabIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.section-heading{font-family:'Noto Serif Display',serif;font-size:2.4rem;font-weight:300;color:var(--charcoal);margin-bottom:0.4rem;line-height:1.15}
+.section-heading em{font-style:italic;color:var(--accent-dark)}
+.section-intro{font-size:13.5px;font-weight:400;color:var(--text-soft);margin-bottom:2.2rem;line-height:1.85;max-width:560px}
+
+/* ══ ITINERARY — POLAROID CARDS ══ */
+.day-card{background:var(--warm-white);border:1px solid var(--border);border-radius:18px;margin-bottom:1.5rem;overflow:hidden;box-shadow:var(--shadow);transition:transform 0.4s ease,box-shadow 0.4s ease;position:relative}
+.day-card:hover{transform:translateY(-4px) rotate(-0.3deg);box-shadow:var(--shadow-hover)}
+.day-card:nth-child(even):hover{transform:translateY(-4px) rotate(0.3deg)}
+.day-card::after{content:'';position:absolute;top:8px;right:12px;width:20px;height:20px;background:var(--blush);border-radius:50%;opacity:0.15}
+.day-header{background:linear-gradient(135deg,#3d2430 0%,#5a3548 50%,#3d2430 100%);padding:1.1rem 1.6rem;display:flex;align-items:center;gap:1rem;position:relative;overflow:hidden}
+.day-header::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15' r='1' fill='rgba(248,200,212,0.06)'/%3E%3C/svg%3E") repeat}
+.day-badge{background:rgba(212,121,139,0.2);border:1px solid rgba(212,121,139,0.35);border-radius:20px;padding:0.3rem 0.9rem;font-size:10px;letter-spacing:2px;color:var(--blush);text-transform:uppercase;font-family:'Quicksand',sans-serif;font-weight:500;position:relative}
+.day-title{font-family:'Caveat',cursive;font-size:1.5rem;color:#fff0f0;position:relative}
+.timeline{padding:1.4rem 1.6rem;display:flex;flex-direction:column}
+.timeline-item{display:grid;grid-template-columns:60px 12px 1fr;gap:0 14px;padding-bottom:1.3rem}
+.timeline-item:last-child{padding-bottom:0}
+.t-time{font-size:11px;color:var(--accent-dark);font-family:'Quicksand',sans-serif;letter-spacing:0.5px;font-weight:500;padding-top:3px;text-align:right}
+.t-line-wrap{display:flex;flex-direction:column;align-items:center}
+.t-dot{width:10px;height:10px;background:var(--accent);border-radius:50%;flex-shrink:0;margin-top:3px;box-shadow:0 0 0 3px rgba(212,121,139,0.15);transition:all 0.3s ease}
+.timeline-item:hover .t-dot{transform:scale(1.4);box-shadow:0 0 0 5px rgba(212,121,139,0.25);background:var(--accent-dark)}
+.t-line{flex:1;width:1px;background:var(--border);margin-top:5px}
+.timeline-item:last-child .t-line{display:none}
+.t-name{font-size:14px;font-weight:600;color:var(--charcoal);letter-spacing:0.2px}
+.t-desc{font-size:12.5px;color:var(--text-soft);margin-top:3px;line-height:1.65;font-weight:400}
+.t-note{font-size:12px;color:var(--accent-dark);margin-top:5px;line-height:1.6;font-weight:500;font-style:italic;background:rgba(242,215,217,0.3);border-left:2px solid var(--accent);padding:4px 10px;border-radius:0 8px 8px 0}
+.itin-link{color:var(--rose-gold-dark);text-decoration:underline;text-decoration-color:rgba(158,107,87,0.3);text-underline-offset:2px;font-weight:500;transition:all 0.2s ease}
+.itin-link:hover{color:var(--charcoal);text-decoration-color:var(--charcoal)}
+
+/* ══ TBD EDITABLE ══ */
+.tbd-editable{margin-top:6px}
+.tbd-display{border:1.5px dashed rgba(212,121,139,0.35);border-radius:12px;padding:0.7rem 1rem;background:rgba(242,215,217,0.15);cursor:pointer;transition:all 0.25s ease;min-height:42px;display:flex;align-items:center}
+.tbd-display:hover{border-color:var(--accent);background:rgba(242,215,217,0.3);box-shadow:0 2px 12px rgba(212,121,139,0.1)}
+.tbd-placeholder{font-size:12.5px;color:var(--text-soft);font-style:italic;font-weight:400;opacity:0.7}
+.tbd-saved-text{font-size:13px;color:var(--charcoal);line-height:1.6;font-weight:400;white-space:pre-wrap;word-break:break-word}
+.tbd-display.has-text .tbd-placeholder{display:none}
+.tbd-display:not(.has-text) .tbd-saved-text{display:none}
+.tbd-movie{background:rgba(60,40,50,0.04);border-color:rgba(107,80,100,0.25)}
+.tbd-movie:hover{border-color:var(--charcoal-mid);background:rgba(60,40,50,0.08)}
+.tbd-input{display:none;width:100%;border:1.5px solid var(--accent);border-radius:12px;padding:0.7rem 1rem;font-family:'Quicksand',sans-serif;font-size:13px;color:var(--text);background:var(--warm-white);outline:none;resize:vertical;min-height:60px;line-height:1.6;box-shadow:0 0 0 3px rgba(212,121,139,0.12)}
+.tbd-input:focus{box-shadow:0 0 0 4px rgba(212,121,139,0.2)}
+.tbd-input.tbd-large{min-height:100px}
+.tbd-editable.editing .tbd-display{display:none}
+.tbd-editable.editing .tbd-input{display:block}
+
+/* ══ LOVE LETTER ══ */
+.letter-container{text-align:center;padding:2rem 0}
+.envelope{width:200px;height:140px;margin:0 auto 2rem;position:relative;cursor:pointer;transition:transform 0.4s ease}
+.envelope:hover{transform:scale(1.05)}
+.envelope-body{width:100%;height:100%;background:linear-gradient(145deg,#f5e6e0,#f0d0c8);border-radius:8px;border:1px solid rgba(196,145,123,0.3);position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(62,30,30,0.1)}
+.envelope-flap{position:absolute;top:0;left:0;right:0;height:60%;background:linear-gradient(180deg,#edd5cc,#f0d0c8);clip-path:polygon(0 0,50% 65%,100% 0);transform-origin:top center;transition:transform 0.6s ease;z-index:2}
+.envelope.open .envelope-flap{transform:rotateX(180deg)}
+.envelope-heart{position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);font-size:24px;z-index:3;animation:heartPulse 2s ease-in-out infinite}
+@keyframes heartPulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.15)}}
+.envelope-text{font-family:'Quicksand',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-soft);margin-top:0.5rem}
+.letter-content{display:none;max-width:600px;margin:0 auto;background:var(--warm-white);border:1px solid var(--border);border-radius:20px;padding:3rem 2.5rem;box-shadow:var(--shadow-hover);animation:letterReveal 0.8s ease-out both;position:relative;overflow:hidden}
+.letter-content::before{content:'';position:absolute;top:-50px;right:-50px;width:150px;height:150px;background:radial-gradient(circle,rgba(242,215,217,0.4),transparent 70%);border-radius:50%}
+.letter-content::after{content:'';position:absolute;bottom:-30px;left:-30px;width:100px;height:100px;background:radial-gradient(circle,rgba(232,223,245,0.3),transparent 70%);border-radius:50%}
+@keyframes letterReveal{from{opacity:0;transform:translateY(20px) scale(0.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+.letter-content.show{display:block}
+.letter-date{font-family:'Quicksand',sans-serif;font-size:11px;letter-spacing:2px;color:var(--text-soft);text-transform:uppercase;margin-bottom:1.5rem;position:relative}
+.letter-body{font-family:'Caveat',cursive;font-size:1.35rem;line-height:1.8;color:var(--charcoal);position:relative;text-align:left}
+.letter-body p{margin-bottom:1rem}
+.letter-sign{font-family:'Caveat',cursive;font-size:1.5rem;color:var(--accent-dark);margin-top:1.5rem;text-align:right;position:relative}
+
+/* ══ BUCKET LIST ══ */
+.bucket-list{max-width:600px;margin:0 auto}
+.bucket-item{display:flex;align-items:center;gap:14px;padding:1rem 1.2rem;background:var(--warm-white);border:1px solid var(--border);border-radius:14px;margin-bottom:0.8rem;cursor:pointer;transition:all 0.3s ease;user-select:none}
+.bucket-item:hover{transform:translateX(4px);box-shadow:var(--shadow);border-color:rgba(212,121,139,0.3)}
+.bucket-check{width:24px;height:24px;border:2px solid var(--blush-deep);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.3s ease;font-size:12px;color:transparent}
+.bucket-item.checked .bucket-check{background:var(--accent);border-color:var(--accent);color:white}
+.bucket-item.checked .bucket-text{text-decoration:line-through;color:var(--text-soft)}
+.bucket-text{font-size:15px;font-weight:500;color:var(--charcoal);transition:all 0.3s ease}
+.bucket-tag{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-soft);background:var(--blush-light);padding:2px 8px;border-radius:10px;margin-left:auto;flex-shrink:0}
+
+/* ══ RESTAURANTS ══ */
+.filter-bar,.todo-filter-bar{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.8rem}
+.filter-btn,.todo-filter-btn{background:var(--warm-white);border:1px solid var(--border);border-radius:20px;padding:0.45rem 1rem;font-family:'Quicksand',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.5px;color:var(--text-soft);cursor:pointer;transition:all 0.25s ease}
+.filter-btn:hover,.todo-filter-btn:hover{border-color:var(--accent);color:var(--charcoal)}
+.filter-btn.active,.todo-filter-btn.active{background:var(--accent);color:white;border-color:var(--accent);font-weight:600}
+.resto-grid,.todo-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.resto-card,.todo-card{background:var(--warm-white);border:1px solid var(--border);border-radius:16px;padding:1.4rem;box-shadow:var(--shadow);transition:all 0.35s ease;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.resto-card.hidden,.todo-card.hidden{display:none}
+.resto-card::before,.todo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blush),var(--accent),var(--lavender));opacity:0;transition:opacity 0.35s ease}
+.resto-card:hover,.todo-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover);border-color:rgba(212,121,139,0.3)}
+.resto-card:hover::before,.todo-card:hover::before{opacity:1}
+.resto-tag,.todo-tag{display:inline-block;background:var(--blush-light);color:var(--accent-dark);font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:12px;margin-bottom:0.7rem;font-family:'Quicksand',sans-serif;font-weight:600;border:1px solid rgba(212,121,139,0.2);align-self:flex-start}
+.resto-name,.todo-name{font-family:'Noto Serif Display',serif;font-size:1.2rem;color:var(--charcoal);margin-bottom:0.3rem;line-height:1.2;font-weight:400}
+.resto-review,.todo-review{font-size:12.5px;color:var(--text-soft);line-height:1.65;font-weight:400;font-style:italic;margin-top:0.3rem}
+.resto-stars,.todo-stars{margin-top:0.6rem;font-size:14px;letter-spacing:2px}
+.resto-map-btn,.todo-map-btn{display:inline-flex;align-items:center;gap:5px;margin-top:0.8rem;background:var(--accent);color:white;border:none;border-radius:20px;padding:0.45rem 1rem;font-family:'Quicksand',sans-serif;font-size:10px;letter-spacing:0.5px;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:all 0.3s ease;align-self:flex-start;font-weight:600}
+.resto-map-btn:hover,.todo-map-btn:hover{background:var(--accent-dark);transform:translateY(-1px)}
+.resto-comments,.todo-comments{margin-top:auto;padding-top:0.9rem;border-top:1px solid var(--border);margin-top:1rem}
+.resto-comments-title,.todo-comments-title{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-soft);font-family:'Quicksand',sans-serif;margin-bottom:0.5rem;font-weight:500}
+.resto-comment-list,.todo-comment-list{max-height:120px;overflow-y:auto;margin-bottom:0.5rem}
+.resto-comment-item,.todo-comment-item{font-size:12px;color:var(--text);line-height:1.5;padding:0.35rem 0;border-bottom:1px solid rgba(196,145,123,0.08);font-weight:400}
+.resto-comment-form,.todo-comment-form{display:flex;gap:0.4rem}
+.resto-comment-input,.todo-comment-input{flex:1;border:1px solid var(--border);border-radius:20px;padding:0.4rem 0.8rem;font-size:11.5px;font-family:'Quicksand',sans-serif;background:var(--cream);color:var(--text);outline:none;transition:border-color 0.2s ease}
+.resto-comment-input:focus,.todo-comment-input:focus{border-color:var(--accent)}
+.resto-comment-input::placeholder,.todo-comment-input::placeholder{color:rgba(138,112,112,0.5)}
+.resto-comment-submit,.todo-comment-submit{background:var(--accent);color:#fff;border:none;border-radius:20px;padding:0.4rem 0.8rem;font-family:'Quicksand',sans-serif;font-size:10px;letter-spacing:0.5px;text-transform:uppercase;cursor:pointer;font-weight:600;transition:background 0.2s ease}
+.resto-comment-submit:hover,.todo-comment-submit:hover{background:var(--accent-dark)}
+
+/* ══ TODO EXTRAS ══ */
+.todo-header-row{display:flex;align-items:flex-start;justify-content:space-between;gap:0.5rem;margin-bottom:0.3rem}
+.todo-price{display:inline-block;font-family:'Quicksand',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:12px;white-space:nowrap;flex-shrink:0}
+.todo-price.paid{background:rgba(212,121,139,0.12);color:var(--accent-dark);border:1px solid rgba(212,121,139,0.25)}
+.todo-price.free{background:rgba(158,191,158,0.15);color:#4a8a4a;border:1px solid rgba(158,191,158,0.3)}
+
+/* ══ STAY ══ */
+.hotel-hero{background:linear-gradient(155deg,#3d2430 0%,#5a3548 50%,#3d2430 100%);border-radius:20px;padding:2.8rem;margin-bottom:1.3rem;position:relative;overflow:hidden;box-shadow:0 8px 40px rgba(61,36,48,0.3);transition:transform 0.4s ease}
+.hotel-hero:hover{transform:translateY(-3px)}
+.hotel-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;border:40px solid rgba(212,121,139,0.06)}
+.hotel-hero::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;border-radius:50%;border:30px solid rgba(232,223,245,0.05)}
+.hotel-eyebrow{font-size:10px;letter-spacing:3px;color:var(--blush);text-transform:uppercase;font-family:'Quicksand',sans-serif;font-weight:400;margin-bottom:0.6rem;position:relative}
+.hotel-name{font-family:'Noto Serif Display',serif;font-size:2rem;font-weight:300;color:#fff0f0;margin-bottom:0.6rem;position:relative}
+.hotel-desc{font-size:13.5px;color:rgba(255,240,240,0.55);line-height:1.75;max-width:480px;font-weight:400;position:relative}
+.hotel-meta{display:flex;gap:2rem;margin-top:1.8rem;flex-wrap:wrap;position:relative}
+.hm-label{font-size:9.5px;letter-spacing:2px;color:rgba(255,240,240,0.3);text-transform:uppercase;font-family:'Quicksand',sans-serif;font-weight:400}
+.hm-value{font-size:14.5px;color:#fff0f0;font-weight:400;margin-top:3px;font-family:'Noto Serif Display',serif}
+.amenities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.9rem;margin-top:1.3rem}
+.amenity{background:var(--warm-white);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1rem;text-align:center;box-shadow:var(--shadow);transition:all 0.3s ease;cursor:default}
+.amenity:hover{transform:translateY(-4px) scale(1.02);box-shadow:var(--shadow-hover);background:var(--blush-light)}
+.amenity-icon{font-size:20px;transition:transform 0.3s ease}
+.amenity:hover .amenity-icon{transform:scale(1.2)}
+.amenity-name{font-size:11.5px;color:var(--text-soft);margin-top:6px;font-weight:500}
+.map-open-btn{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:white;border:none;border-radius:20px;padding:0.7rem 1.4rem;font-family:'Quicksand',sans-serif;font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:500;cursor:pointer;text-decoration:none;transition:all 0.3s ease;position:relative}
+.map-open-btn:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(212,121,139,0.35)}
+
+/* ══ MAP ══ */
+#leaflet-map{width:100%;height:480px;border-radius:20px;border:1px solid var(--border);box-shadow:var(--shadow);margin-bottom:1rem;z-index:1}
+.map-legend{text-align:center;font-family:'Quicksand',sans-serif;font-size:13px;color:var(--text-soft);margin-bottom:1.8rem}
+.map-legend span{margin:0 0.6rem}
+.transport-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.transport-card{background:var(--warm-white);border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;box-shadow:var(--shadow);transition:all 0.3s ease}
+.transport-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover)}
+.tc-label{font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent-dark);font-family:'Quicksand',sans-serif;font-weight:600;margin-bottom:0.5rem}
+.tc-title{font-family:'Noto Serif Display',serif;font-size:1.05rem;font-weight:400;color:var(--charcoal);margin-bottom:4px}
+.tc-desc{font-size:12.5px;color:var(--text-soft);line-height:1.65;font-weight:400}
+
+/* ══ MEMORIES ══ */
+.memories-hero{background:linear-gradient(160deg,#5a3548 0%,#7a4e68 100%);border-radius:22px;padding:2.5rem;text-align:center;margin-bottom:2rem;position:relative;overflow:hidden}
+.memories-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15' r='1' fill='rgba(248,200,212,0.06)'/%3E%3C/svg%3E") repeat}
+.memories-hero-title{font-family:'Noto Serif Display',serif;font-size:2rem;color:#fff0f0;font-style:italic;position:relative;margin-bottom:0.4rem;font-weight:300}
+.memories-hero-sub{font-size:12px;letter-spacing:2px;color:rgba(255,240,240,0.4);text-transform:uppercase;position:relative;font-weight:400}
+.upload-zone{border:2px dashed rgba(212,121,139,0.35);border-radius:18px;padding:2.5rem;text-align:center;background:rgba(242,215,217,0.12);cursor:pointer;transition:all 0.3s ease;margin-bottom:2rem;position:relative}
+.upload-zone:hover,.upload-zone.drag-over{border-color:var(--accent);background:rgba(242,215,217,0.25);transform:scale(1.01)}
+.upload-zone input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.upload-icon{font-size:2.5rem;margin-bottom:0.8rem}
+.upload-title{font-family:'Noto Serif Display',serif;font-size:1.3rem;color:var(--charcoal);margin-bottom:0.3rem;font-weight:400}
+.upload-sub{font-size:12px;color:var(--text-soft)}
+.mem-name-row{display:flex;gap:0.8rem;margin-bottom:1.5rem;align-items:center}
+.mem-name-input{flex:1;padding:0.65rem 1rem;border:1px solid var(--border);border-radius:20px;font-family:'Quicksand',sans-serif;font-size:13.5px;background:var(--warm-white);color:var(--text);outline:none;transition:all 0.2s ease;font-weight:400}
+.mem-name-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(212,121,139,0.12)}
+.mem-caption-input{flex:2}
+.mem-board{columns:3;column-gap:1rem;margin-top:0.5rem}
+@media(max-width:700px){.mem-board{columns:2}}
+@media(max-width:420px){.mem-board{columns:1}}
+.mem-item{break-inside:avoid;margin-bottom:1rem;border-radius:16px;overflow:hidden;background:var(--warm-white);border:1px solid var(--border);box-shadow:var(--shadow);transition:all 0.3s ease;position:relative}
+.mem-item:hover{transform:translateY(-4px) rotate(0.5deg);box-shadow:var(--shadow-hover)}
+.mem-item img,.mem-item video{width:100%;display:block;object-fit:cover}
+.mem-item video{max-height:280px}
+.mem-caption{padding:0.7rem 0.9rem 0.8rem}
+.mem-caption-name{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-dark);font-family:'Quicksand',sans-serif;font-weight:600;margin-bottom:2px}
+.mem-caption-text{font-size:15px;color:var(--text-soft);font-style:italic;font-family:'Caveat',cursive;line-height:1.4}
+.mem-delete{position:absolute;top:8px;right:8px;background:rgba(61,46,46,0.6);border:none;border-radius:50%;width:26px;height:26px;color:white;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s ease}
+.mem-item:hover .mem-delete{opacity:1}
+.mem-empty{text-align:center;padding:3rem 1rem;color:var(--text-soft)}
+.mem-empty-icon{font-size:3rem;margin-bottom:0.8rem}
+.mem-empty-text{font-family:'Noto Serif Display',serif;font-size:1.2rem;font-style:italic;color:var(--text-soft);font-weight:300}
+.mem-upload-btn{background:var(--accent);color:white;border:none;border-radius:20px;padding:0.7rem 1.5rem;font-family:'Quicksand',sans-serif;font-size:12px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-weight:600;transition:all 0.3s ease;white-space:nowrap;flex-shrink:0}
+.mem-upload-btn:hover{background:var(--accent-dark);transform:translateY(-1px)}
+.mem-count{font-size:11px;color:var(--text-soft);letter-spacing:1px;text-align:center;margin-bottom:1.2rem;font-family:'Quicksand',sans-serif}
+
+/* ══ SPOTIFY ══ */
+.spotify-section{margin-top:2rem;text-align:center}
+.spotify-section iframe{border-radius:16px;box-shadow:var(--shadow)}
+
+/* ══ FOOTER ══ */
+.site-footer{text-align:center;padding:3rem 1.5rem;color:var(--text-soft);font-size:12px;letter-spacing:1px}
+.footer-heart{color:var(--accent);font-size:16px;display:inline-block;animation:heartPulse 2s ease-in-out infinite}
+.footer-korean{font-size:13px;color:var(--blush-deep);margin-top:4px}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:600px){
+  .hero{max-height:680px}
+  .hero h1{font-size:2.6rem}
+  .section-heading{font-size:1.9rem}
+  .resto-grid,.todo-grid{grid-template-columns:1fr}
+  .amenities-grid{grid-template-columns:1fr 1fr}
+  .transport-grid{grid-template-columns:1fr}
+  .nav-btn{padding:0.8rem 0.6rem;font-size:9px;letter-spacing:1px}
+  .hotel-hero{padding:1.8rem}
+  .hotel-name{font-size:1.5rem}
+  .letter-content{padding:2rem 1.5rem}
+  .countdown-timer{gap:1rem}
+  .cd-num{font-size:1.4rem}
+}
 </style>
 </head>
 <body>
+
+<!-- CHERRY BLOSSOM PETALS -->
+<div class="petals-container" id="petals"></div>
 
 <!-- HERO -->
 <header class="hero">
@@ -1399,21 +305,35 @@
   <div class="hero-overlay"></div>
   <div class="hero-vignette"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Our Adventure Awaits</div>
+    <div class="hero-eyebrow">Our Next Chapter</div>
     <h1>Atlanta,<br><em>Georgia</em></h1>
-    <div class="divider-ornament"><div class="ornament-diamond"></div></div>
+    <div class="hero-korean">我们的下一篇章</div>
+    <div class="divider-ornament"><span class="ornament-heart">&#x2661;</span></div>
     <div class="hero-sub">In attempt to catch the glimpse of us</div>
   </div>
 </header>
 
+<!-- COUNTDOWN -->
+<div class="countdown-bar">
+  <div class="countdown-label">Our adventure begins in</div>
+  <div class="countdown-timer" id="countdown">
+    <div class="cd-unit"><div class="cd-num" id="cd-days">--</div><div class="cd-lbl">Days</div></div>
+    <div class="cd-unit"><div class="cd-num" id="cd-hours">--</div><div class="cd-lbl">Hours</div></div>
+    <div class="cd-unit"><div class="cd-num" id="cd-mins">--</div><div class="cd-lbl">Minutes</div></div>
+    <div class="cd-unit"><div class="cd-num" id="cd-secs">--</div><div class="cd-lbl">Seconds</div></div>
+  </div>
+</div>
+
 <!-- NAV -->
 <nav class="nav">
-  <button class="nav-btn active" onclick="showTab('itinerary', this)">Itinerary</button>
-  <button class="nav-btn" onclick="showTab('restaurants', this)">Dining</button>
-  <button class="nav-btn" onclick="showTab('todo', this)">To Do</button>
-  <button class="nav-btn" onclick="showTab('stay', this)">Stay</button>
-  <button class="nav-btn" onclick="showTab('map', this)">Map</button>
-  <button class="nav-btn" onclick="showTab('memories', this)">Memories</button>
+  <button class="nav-btn active" onclick="showTab('itinerary',this)">Itinerary</button>
+  <button class="nav-btn" onclick="showTab('restaurants',this)">Dining</button>
+  <button class="nav-btn" onclick="showTab('todo',this)">To Do</button>
+  <button class="nav-btn" onclick="showTab('stay',this)">Stay</button>
+  <button class="nav-btn" onclick="showTab('map',this)">Map</button>
+  <button class="nav-btn" onclick="showTab('letter',this)">Love Letter</button>
+  <button class="nav-btn" onclick="showTab('bucket',this)">Bucket List</button>
+  <button class="nav-btn" onclick="showTab('memories',this)">Memories</button>
 </nav>
 
 <div class="container">
@@ -1421,219 +341,47 @@
   <!-- ITINERARY -->
   <div class="tab active" id="tab-itinerary">
     <h2 class="section-heading">Our <em>Itinerary</em></h2>
-    <p class="section-intro">Five days, one city, and all the moments in between — our Atlanta adventure, day by day.</p>
+    <p class="section-intro">Five days, one city, and all the moments in between — our Atlanta love story, day by day.</p>
 
-    <!-- ═══ WEDNESDAY APR 9 ═══ -->
-    <div class="day-card">
-      <div class="day-header">
-        <span class="day-badge">Wed · Apr 9</span>
-        <span class="day-title">Arrival Day</span>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="t-time">Evening</div>
-          <div class="t-line-wrap"><div class="t-dot"></div><div class="t-line"></div></div>
-          <div class="t-content">
-            <div class="t-name">🍜 Dinner with Maya & Denis</div>
-            <div class="t-desc">
-              <a href="https://www.google.com/maps/search/Ke+Chuan+Jiang+Hu+Atlanta+GA" target="_blank" class="itin-link">Ke Chuan Jiang Hu</a> — Sichuan food to kick off the trip.
-            </div>
-            <div class="t-note">First night in Atlanta with our favorite people 🐰</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="day-card"><div class="day-header"><span class="day-badge">Wed &middot; Apr 9</span><span class="day-title">Arrival Day</span></div><div class="timeline"><div class="timeline-item"><div class="t-time">Evening</div><div class="t-line-wrap"><div class="t-dot"></div><div class="t-line"></div></div><div class="t-content"><div class="t-name">Dinner with Maya & Denis</div><div class="t-desc"><a href="https://www.google.com/maps/search/Ke+Chuan+Jiang+Hu+Atlanta+GA" target="_blank" class="itin-link">Ke Chuan Jiang Hu</a> — Sichuan food to kick off the trip.</div><div class="t-note">First night in Atlanta with our favorite people</div></div></div></div></div>
 
-    <!-- ═══ THURSDAY APR 10 ═══ -->
-    <div class="day-card">
-      <div class="day-header">
-        <span class="day-badge">Thu · Apr 10</span>
-        <span class="day-title">Culture Day</span>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="t-time">Morning</div>
-          <div class="t-line-wrap"><div class="t-dot"></div><div class="t-line"></div></div>
-          <div class="t-content">
-            <div class="t-name">Free / TBD</div>
-            <div class="tbd-editable" data-key="thu_morning">
-              <div class="tbd-display" onclick="editTbd(this)">
-                <span class="tbd-placeholder">✏️ Click to add plans…</span>
-                <span class="tbd-saved-text"></span>
-              </div>
-              <textarea class="tbd-input" onblur="saveTbd(this)" placeholder="What should we do?"></textarea>
-            </div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="t-time">Afternoon</div>
-          <div class="t-line-wrap"><div class="t-dot"></div><div class="t-line"></div></div>
-          <div class="t-content">
-            <div class="t-name">🖼️ Visit the High Museum of Art</div>
-            <div class="t-desc">
-              After lunch — <a href="https://www.google.com/maps/search/High+Museum+of+Art+Atlanta" target="_blank" class="itin-link">High Museum of Art</a>. Featuring works by Monet and Picasso.
-            </div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="t-time">Evening</div>
-          <div class="t-line-wrap"><div class="t-dot"></div><div class="t-line"></div></div>
-          <div class="t-content">
-            <div class="t-name">🎬 Movie Night</div>
-            <div class="tbd-editable" data-key="thu_movie">
-              <div class="tbd-display tbd-movie" onclick="editTbd(this)">
-                <span class="tbd-placeholder">🎬 Movie TBD — we'll pick together</span>
-                <span class="tbd-saved-text"></span>
-              </div>
-              <textarea class="tbd-input" onblur="saveTbd(this)" placeholder="Which movie are we watching?"></textarea>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="day-card"><div class="day-header"><span class="day-badge">Thu &middot; Apr 10</span><span class="day-title">Culture Day</span></div><div class="timeline"><div class="timeline-item"><div class="t-time">Morning</div><div class="t-line-wrap"><div class="t-dot"></div><div class="t-line"></div></div><div class="t-content"><div class="t-name">Free / TBD</div><div class="tbd-editable" data-key="thu_morning"><div class="tbd-display" onclick="editTbd(this)"><span class="tbd-placeholder">Click to add plans...</span><span class="tbd-saved-text"></span></div><textarea class="tbd-input" onblur="saveTbd(this)" placeholder="What should we do?"></textarea></div></div></div><div class="timeline-item"><div class="t-time">Afternoon</div><div class="t-line-wrap"><div class="t-dot"></div><div class="t-line"></div></div><div class="t-content"><div class="t-name">Visit the High Museum of Art</div><div class="t-desc">After lunch — <a href="https://www.google.com/maps/search/High+Museum+of+Art+Atlanta" target="_blank" class="itin-link">High Museum of Art</a>. Featuring works by Monet and Picasso.</div></div></div><div class="timeline-item"><div class="t-time">Evening</div><div class="t-line-wrap"><div class="t-dot"></div></div><div class="t-content"><div class="t-name">Movie Night</div><div class="tbd-editable" data-key="thu_movie"><div class="tbd-display tbd-movie" onclick="editTbd(this)"><span class="tbd-placeholder">Movie TBD — we'll pick together</span><span class="tbd-saved-text"></span></div><textarea class="tbd-input" onblur="saveTbd(this)" placeholder="Which movie are we watching?"></textarea></div></div></div></div></div>
 
-    <!-- ═══ FRIDAY APR 11 ═══ -->
-    <div class="day-card">
-      <div class="day-header">
-        <span class="day-badge">Fri · Apr 11</span>
-        <span class="day-title">Adventure Day</span>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="t-time">Morning</div>
-          <div class="t-line-wrap"><div class="t-dot"></div><div class="t-line"></div></div>
-          <div class="t-content">
-            <div class="t-name">🚗 Road Trip Departure</div>
-            <div class="t-desc">Head out early for South Carolina!</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="t-time">Full Day</div>
-          <div class="t-line-wrap"><div class="t-dot"></div><div class="t-line"></div></div>
-          <div class="t-content">
-            <div class="t-name">🌲 Caesars Head / Pretty Place</div>
-            <div class="t-desc">
-              <a href="https://www.google.com/maps/search/Caesars+Head+State+Park+SC" target="_blank" class="itin-link">Caesars Head State Park</a> OR
-              <a href="https://www.google.com/maps/search/Fred+W+Symmes+Chapel+Pretty+Place+SC" target="_blank" class="itin-link">Fred W. Symmes Chapel ("Pretty Place")</a>
-            </div>
-            <div class="t-note">~2.5 hour drive — worth every minute 🌲</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="t-time">Evening</div>
-          <div class="t-line-wrap"><div class="t-dot"></div><div class="t-line"></div></div>
-          <div class="t-content">
-            <div class="t-name">Back in Atlanta — TBD</div>
-            <div class="tbd-editable" data-key="fri_evening">
-              <div class="tbd-display" onclick="editTbd(this)">
-                <span class="tbd-placeholder">✏️ Click to add plans…</span>
-                <span class="tbd-saved-text"></span>
-              </div>
-              <textarea class="tbd-input" onblur="saveTbd(this)" placeholder="Dinner plans? Chill night?"></textarea>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="day-card"><div class="day-header"><span class="day-badge">Fri &middot; Apr 11</span><span class="day-title">Adventure Day</span></div><div class="timeline"><div class="timeline-item"><div class="t-time">Morning</div><div class="t-line-wrap"><div class="t-dot"></div><div class="t-line"></div></div><div class="t-content"><div class="t-name">Road Trip Departure</div><div class="t-desc">Head out early for South Carolina!</div></div></div><div class="timeline-item"><div class="t-time">Full Day</div><div class="t-line-wrap"><div class="t-dot"></div><div class="t-line"></div></div><div class="t-content"><div class="t-name">Caesars Head / Pretty Place</div><div class="t-desc"><a href="https://www.google.com/maps/search/Caesars+Head+State+Park+SC" target="_blank" class="itin-link">Caesars Head State Park</a> OR <a href="https://www.google.com/maps/search/Fred+W+Symmes+Chapel+Pretty+Place+SC" target="_blank" class="itin-link">Fred W. Symmes Chapel ("Pretty Place")</a></div><div class="t-note">~2.5 hour drive — worth every minute</div></div></div><div class="timeline-item"><div class="t-time">Evening</div><div class="t-line-wrap"><div class="t-dot"></div></div><div class="t-content"><div class="t-name">Back in Atlanta — TBD</div><div class="tbd-editable" data-key="fri_evening"><div class="tbd-display" onclick="editTbd(this)"><span class="tbd-placeholder">Click to add plans...</span><span class="tbd-saved-text"></span></div><textarea class="tbd-input" onblur="saveTbd(this)" placeholder="Dinner plans? Chill night?"></textarea></div></div></div></div></div>
 
-    <!-- ═══ SATURDAY APR 12 ═══ -->
-    <div class="day-card">
-      <div class="day-header">
-        <span class="day-badge">Sat · Apr 12</span>
-        <span class="day-title">Our Day</span>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="t-time">All Day</div>
-          <div class="t-line-wrap"><div class="t-dot"></div><div class="t-line"></div></div>
-          <div class="t-content">
-            <div class="t-name">💛 Fully TBD</div>
-            <div class="t-note" style="margin-bottom:0.6rem;">A day with no plans — the best kind 🐰</div>
-            <div class="tbd-editable" data-key="sat_allday">
-              <div class="tbd-display" onclick="editTbd(this)">
-                <span class="tbd-placeholder">✏️ Click to add plans for the whole day…</span>
-                <span class="tbd-saved-text"></span>
-              </div>
-              <textarea class="tbd-input tbd-large" onblur="saveTbd(this)" placeholder="Brunch? BeltLine walk? Shopping? Lazy afternoon?"></textarea>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="day-card"><div class="day-header"><span class="day-badge">Sat &middot; Apr 12</span><span class="day-title">Our Day</span></div><div class="timeline"><div class="timeline-item"><div class="t-time">All Day</div><div class="t-line-wrap"><div class="t-dot"></div></div><div class="t-content"><div class="t-name">Fully TBD</div><div class="t-note" style="margin-bottom:0.6rem">A day with no plans — the best kind</div><div class="tbd-editable" data-key="sat_allday"><div class="tbd-display" onclick="editTbd(this)"><span class="tbd-placeholder">Click to add plans for the whole day...</span><span class="tbd-saved-text"></span></div><textarea class="tbd-input tbd-large" onblur="saveTbd(this)" placeholder="Brunch? BeltLine walk? Shopping? Korean BBQ?"></textarea></div></div></div></div></div>
 
-    <!-- ═══ SUNDAY APR 13 ═══ -->
-    <div class="day-card">
-      <div class="day-header">
-        <span class="day-badge">Sun · Apr 13</span>
-        <span class="day-title">Farewell Day</span>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="t-time">Morning</div>
-          <div class="t-line-wrap"><div class="t-dot"></div><div class="t-line"></div></div>
-          <div class="t-content">
-            <div class="t-name">TBD</div>
-            <div class="tbd-editable" data-key="sun_morning">
-              <div class="tbd-display" onclick="editTbd(this)">
-                <span class="tbd-placeholder">✏️ Click to add plans…</span>
-                <span class="tbd-saved-text"></span>
-              </div>
-              <textarea class="tbd-input" onblur="saveTbd(this)" placeholder="Last morning plans…"></textarea>
-            </div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="t-time">Checkout</div>
-          <div class="t-line-wrap"><div class="t-dot"></div><div class="t-line"></div></div>
-          <div class="t-content">
-            <div class="t-name">🏨 Sonesta Select Atlanta Midtown</div>
-            <div class="t-desc">Pack up and check out.</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="t-time"></div>
-          <div class="t-line-wrap"><div class="t-dot"></div></div>
-          <div class="t-content">
-            <div class="t-name">✈️ Safe travels home 💛</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="day-card"><div class="day-header"><span class="day-badge">Sun &middot; Apr 13</span><span class="day-title">Farewell Day</span></div><div class="timeline"><div class="timeline-item"><div class="t-time">Morning</div><div class="t-line-wrap"><div class="t-dot"></div><div class="t-line"></div></div><div class="t-content"><div class="t-name">TBD</div><div class="tbd-editable" data-key="sun_morning"><div class="tbd-display" onclick="editTbd(this)"><span class="tbd-placeholder">Click to add plans...</span><span class="tbd-saved-text"></span></div><textarea class="tbd-input" onblur="saveTbd(this)" placeholder="Last morning plans..."></textarea></div></div></div><div class="timeline-item"><div class="t-time">Checkout</div><div class="t-line-wrap"><div class="t-dot"></div><div class="t-line"></div></div><div class="t-content"><div class="t-name">Sonesta Select Atlanta Midtown</div><div class="t-desc">Pack up and check out.</div></div></div><div class="timeline-item"><div class="t-time"></div><div class="t-line-wrap"><div class="t-dot"></div></div><div class="t-content"><div class="t-name">Safe travels home</div></div></div></div></div>
   </div>
 
   <!-- RESTAURANTS -->
   <div class="tab" id="tab-restaurants">
     <h2 class="section-heading"><em>Dining</em> Guide</h2>
     <p class="section-intro">My personal picks for the best eats in Atlanta — honest reviews, bunny-rated, and ready for your comments.</p>
-
     <div class="filter-bar" id="filterBar">
-      <button class="filter-btn active" onclick="filterRestos('All', this)">All</button>
-      <button class="filter-btn" onclick="filterRestos('Chinese', this)">Chinese</button>
-      <button class="filter-btn" onclick="filterRestos('Korean', this)">Korean</button>
-      <button class="filter-btn" onclick="filterRestos('Vietnamese', this)">Vietnamese</button>
-      <button class="filter-btn" onclick="filterRestos('BBQ', this)">BBQ</button>
-      <button class="filter-btn" onclick="filterRestos('Dessert & Drinks', this)">Dessert &amp; Drinks</button>
-      <button class="filter-btn" onclick="filterRestos('Brunch & Western', this)">Brunch &amp; Western</button>
+      <button class="filter-btn active" onclick="filterRestos('All',this)">All</button>
+      <button class="filter-btn" onclick="filterRestos('Chinese',this)">Chinese</button>
+      <button class="filter-btn" onclick="filterRestos('Korean',this)">Korean</button>
+      <button class="filter-btn" onclick="filterRestos('Vietnamese',this)">Vietnamese</button>
+      <button class="filter-btn" onclick="filterRestos('BBQ',this)">BBQ</button>
+      <button class="filter-btn" onclick="filterRestos('Dessert & Drinks',this)">Dessert & Drinks</button>
+      <button class="filter-btn" onclick="filterRestos('Brunch & Western',this)">Brunch & Western</button>
     </div>
-
-    <div class="resto-grid" id="restoGrid">
-    </div>
+    <div class="resto-grid" id="restoGrid"></div>
   </div>
 
   <!-- THINGS TO DO -->
   <div class="tab" id="tab-todo">
     <h2 class="section-heading">Things <em>To Do</em></h2>
     <p class="section-intro">Bunny-rated adventures, culture, and hidden gems — my honest reviews and tips for every stop in Atlanta.</p>
-
     <div class="todo-filter-bar" id="todoFilterBar">
-      <button class="todo-filter-btn active" onclick="filterTodos('All', this)">All</button>
-      <button class="todo-filter-btn" onclick="filterTodos('Attraction', this)">Attractions</button>
-      <button class="todo-filter-btn" onclick="filterTodos('Nature', this)">Nature</button>
-      <button class="todo-filter-btn" onclick="filterTodos('Art & Culture', this)">Art &amp; Culture</button>
-      <button class="todo-filter-btn" onclick="filterTodos('University', this)">Universities</button>
-      <button class="todo-filter-btn" onclick="filterTodos('Shopping', this)">Shopping</button>
+      <button class="todo-filter-btn active" onclick="filterTodos('All',this)">All</button>
+      <button class="todo-filter-btn" onclick="filterTodos('Attraction',this)">Attractions</button>
+      <button class="todo-filter-btn" onclick="filterTodos('Nature',this)">Nature</button>
+      <button class="todo-filter-btn" onclick="filterTodos('Art & Culture',this)">Art & Culture</button>
+      <button class="todo-filter-btn" onclick="filterTodos('University',this)">Universities</button>
+      <button class="todo-filter-btn" onclick="filterTodos('Shopping',this)">Shopping</button>
     </div>
-
     <div class="todo-grid" id="todoGrid"></div>
   </div>
 
@@ -1641,59 +389,30 @@
   <div class="tab" id="tab-stay">
     <h2 class="section-heading">Where I <em>Stay</em></h2>
     <p class="section-intro">Rest, recharge, and wake up to the city.</p>
-
-    <!-- Trip Dates Summary Card -->
-    <div style="background: var(--warm-white); border: 1px solid var(--border); border-radius: 14px; padding: 1.2rem 1.6rem; margin-bottom: 1.3rem; box-shadow: var(--shadow); display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; align-items: center;">
-      <div style="text-align: center;">
-        <div style="font-size: 20px; margin-bottom: 4px;">✈️</div>
-        <div style="font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-soft); font-family: 'Jost', sans-serif; font-weight: 300;">Arrival</div>
-        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--charcoal); font-weight: 500; margin-top: 2px;">April 9th</div>
-      </div>
-      <div style="text-align: center;">
-        <div style="font-size: 20px; margin-bottom: 4px;">🏨</div>
-        <div style="font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-soft); font-family: 'Jost', sans-serif; font-weight: 300;">Duration</div>
-        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--charcoal); font-weight: 500; margin-top: 2px;">4 Nights</div>
-      </div>
-      <div style="text-align: center;">
-        <div style="font-size: 20px; margin-bottom: 4px;">✈️</div>
-        <div style="font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-soft); font-family: 'Jost', sans-serif; font-weight: 300;">Departure</div>
-        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--charcoal); font-weight: 500; margin-top: 2px;">April 14th</div>
-      </div>
+    <div style="background:var(--warm-white);border:1px solid var(--border);border-radius:16px;padding:1.2rem 1.6rem;margin-bottom:1.3rem;box-shadow:var(--shadow);display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;align-items:center;">
+      <div style="text-align:center"><div style="font-size:20px;margin-bottom:4px">&#x2708;</div><div style="font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--text-soft);font-weight:500">Arrival</div><div style="font-family:'Noto Serif Display',serif;font-size:1.1rem;color:var(--charcoal);font-weight:400;margin-top:2px">April 9th</div></div>
+      <div style="text-align:center"><div style="font-size:20px;margin-bottom:4px">&#x1f3e8;</div><div style="font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--text-soft);font-weight:500">Duration</div><div style="font-family:'Noto Serif Display',serif;font-size:1.1rem;color:var(--charcoal);font-weight:400;margin-top:2px">4 Nights</div></div>
+      <div style="text-align:center"><div style="font-size:20px;margin-bottom:4px">&#x2708;</div><div style="font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--text-soft);font-weight:500">Departure</div><div style="font-family:'Noto Serif Display',serif;font-size:1.1rem;color:var(--charcoal);font-weight:400;margin-top:2px">April 14th</div></div>
     </div>
-
     <div class="hotel-hero">
-      <div class="hotel-eyebrow">Our Home in Atlanta</div>
+      <div class="hotel-eyebrow"> Home in Atlanta</div>
       <div class="hotel-name">Sonesta Select Atlanta Midtown Georgia Tech</div>
-      <div class="hotel-desc">A modern select-service hotel in the heart of Midtown Atlanta, right near the Georgia Tech campus. Ideal for exploring the city's best dining, attractions, and the BeltLine — all just steps away.</div>
+      <div class="hotel-desc">A modern select-service hotel in the heart of Midtown Atlanta, right near the Georgia Tech campus. Ideal for exploring the city's best dining, attractions, and the BeltLine.</div>
       <div class="hotel-meta">
-        <div class="hotel-meta-item">
-          <div class="hm-label">Location</div>
-          <div class="hm-value">Midtown Atlanta, near Georgia Tech</div>
-        </div>
-        <div class="hotel-meta-item">
-          <div class="hm-label">Check-in</div>
-          <div class="hm-value">April 9th</div>
-        </div>
-        <div class="hotel-meta-item">
-          <div class="hm-label">Check-out</div>
-          <div class="hm-value">April 13th</div>
-        </div>
-        <div class="hotel-meta-item">
-          <div class="hm-label">Nights</div>
-          <div class="hm-value">4 Nights</div>
-        </div>
+        <div><div class="hm-label">Location</div><div class="hm-value">Midtown Atlanta</div></div>
+        <div><div class="hm-label">Check-in</div><div class="hm-value">April 9th</div></div>
+        <div><div class="hm-label">Check-out</div><div class="hm-value">April 13th</div></div>
+        <div><div class="hm-label">Nights</div><div class="hm-value">4 Nights</div></div>
       </div>
-      <div style="margin-top: 1.8rem; position: relative;">
-        <a class="map-open-btn" href="https://www.google.com/maps/search/Sonesta+Select+Atlanta+Midtown+Georgia+Tech" target="_blank" style="display: inline-flex; align-items: center; gap: 6px;">📍 Get Directions</a>
-      </div>
+      <div style="margin-top:1.8rem;position:relative"><a class="map-open-btn" href="https://www.google.com/maps/search/Sonesta+Select+Atlanta+Midtown+Georgia+Tech" target="_blank">Get Directions</a></div>
     </div>
     <div class="amenities-grid">
-      <div class="amenity"><div class="amenity-icon">🏊</div><div class="amenity-name">Pool</div></div>
-      <div class="amenity"><div class="amenity-icon">💆</div><div class="amenity-name">Spa</div></div>
-      <div class="amenity"><div class="amenity-icon">🍳</div><div class="amenity-name">Dining</div></div>
-      <div class="amenity"><div class="amenity-icon">🚗</div><div class="amenity-name">Valet</div></div>
-      <div class="amenity"><div class="amenity-icon">🏋️</div><div class="amenity-name">Gym</div></div>
-      <div class="amenity"><div class="amenity-icon">📶</div><div class="amenity-name">WiFi</div></div>
+      <div class="amenity"><div class="amenity-icon">&#x1f3ca;</div><div class="amenity-name">Pool</div></div>
+      <div class="amenity"><div class="amenity-icon">&#x1f486;</div><div class="amenity-name">Spa</div></div>
+      <div class="amenity"><div class="amenity-icon">&#x1f373;</div><div class="amenity-name">Dining</div></div>
+      <div class="amenity"><div class="amenity-icon">&#x1f697;</div><div class="amenity-name">Valet</div></div>
+      <div class="amenity"><div class="amenity-icon">&#x1f3cb;</div><div class="amenity-name">Gym</div></div>
+      <div class="amenity"><div class="amenity-icon">&#x1f4f6;</div><div class="amenity-name">WiFi</div></div>
     </div>
   </div>
 
@@ -1702,58 +421,88 @@
     <h2 class="section-heading">Getting <em>Around</em></h2>
     <p class="section-intro">Atlanta is a city best explored with a mix of walking, rideshares, and a little wandering.</p>
     <div id="leaflet-map"></div>
-    <div class="map-legend">
-      <span>❤️ Restaurants</span> · <span>📍 Activities &amp; Hotel</span>
-    </div>
+    <div class="map-legend"><span>&#x2764; Restaurants</span> &middot; <span>&#x1f4cd; Activities & Hotel</span></div>
     <div class="transport-grid">
-      <div class="transport-card">
-        <div class="tc-label">Getting There</div>
-        <div class="tc-title">Hartsfield-Jackson Airport</div>
-        <div class="tc-desc">The world's busiest airport, ~25 min from Midtown. Take MARTA rail or a rideshare directly to the hotel.</div>
+      <div class="transport-card"><div class="tc-label">Getting There</div><div class="tc-title">Hartsfield-Jackson Airport</div><div class="tc-desc">The world's busiest airport, ~25 min from Midtown. Take MARTA rail or a rideshare directly to the hotel.</div></div>
+      <div class="transport-card"><div class="tc-label">Around the City</div><div class="tc-title">Rideshare & MARTA</div><div class="tc-desc">Uber/Lyft are abundant. MARTA rail connects the airport, Midtown, and downtown efficiently.</div></div>
+      <div class="transport-card"><div class="tc-label">BeltLine</div><div class="tc-title">Walk the Trail</div><div class="tc-desc">The Eastside Trail connects Inman Park to Midtown on foot. Rent e-bikes along the way.</div></div>
+      <div class="transport-card"><div class="tc-label">Neighborhoods</div><div class="tc-title">Key Areas</div><div class="tc-desc">Midtown, Old Fourth Ward, West Midtown, Inman Park, Little Five Points — all within 15 min of each other.</div></div>
+    </div>
+  </div>
+
+  <!-- LOVE LETTER -->
+  <div class="tab" id="tab-letter">
+    <h2 class="section-heading">A Letter <em>For You</em></h2>
+    <p class="section-intro">Some words I wanted to share with you before we go.</p>
+    <div class="letter-container">
+      <div class="envelope" id="envelope" onclick="openLetter()">
+        <div class="envelope-body">
+          <div class="envelope-flap"></div>
+          <div class="envelope-heart">&#x1f48c;</div>
+        </div>
+        <div class="envelope-text">Tap to open</div>
       </div>
-      <div class="transport-card">
-        <div class="tc-label">Around the City</div>
-        <div class="tc-title">Rideshare & MARTA</div>
-        <div class="tc-desc">Uber/Lyft are abundant. MARTA rail connects the airport, Midtown, and downtown efficiently.</div>
+      <div class="letter-content" id="letterContent">
+        <div class="letter-date">Before our trip...</div>
+        <div class="letter-body">
+          <p>Hey Fei,</p>
+          <p>Wanted you to know that this trip isn't about seeing a new city - it's about seeing it with you. Every restaurant we picked, every place we researched, every little detail on this website, it was to see your smile one more time.</p>
+          <p>Atlanta is going to be amazing, but honestly, it could be anywhere. The magic isn't the place, it's that I get to be there with you.</p>
+          <p>Here's the journey to the next chapter together.</p>
+        </div>
+        <div class="letter-sign">With all honesty, you get my head over clouds &#x2661;</div>
       </div>
-      <div class="transport-card">
-        <div class="tc-label">BeltLine</div>
-        <div class="tc-title">Walk the Trail</div>
-        <div class="tc-desc">The Eastside Trail connects Inman Park to Midtown on foot. Rent e-bikes along the way.</div>
-      </div>
-      <div class="transport-card">
-        <div class="tc-label">Neighborhoods</div>
-        <div class="tc-title">Key Areas</div>
-        <div class="tc-desc">Midtown, Old Fourth Ward, West Midtown, Inman Park, Little Five Points — all within 15 min of each other.</div>
-      </div>
+    </div>
+  </div>
+
+  <!-- BUCKET LIST -->
+  <div class="tab" id="tab-bucket">
+    <h2 class="section-heading">Our <em>Bucket List</em></h2>
+    <p class="section-intro">Things we want to do together on this trip — check them off as we go!</p>
+    <div class="bucket-list" id="bucketList">
+      <div class="bucket-item" onclick="toggleBucket(this)" data-key="b1"><div class="bucket-check">&#x2713;</div><div class="bucket-text">Try Korean BBQ together at a grill table</div><span class="bucket-tag">food</span></div>
+      <div class="bucket-item" onclick="toggleBucket(this)" data-key="b2"><div class="bucket-check">&#x2713;</div><div class="bucket-text">Watch sunset from a rooftop</div><span class="bucket-tag">romantic</span></div>
+      <div class="bucket-item" onclick="toggleBucket(this)" data-key="b3"><div class="bucket-check">&#x2713;</div><div class="bucket-text">Take matching couple photos on the BeltLine</div><span class="bucket-tag">photo</span></div>
+      <div class="bucket-item" onclick="toggleBucket(this)" data-key="b4"><div class="bucket-check">&#x2713;</div><div class="bucket-text">Share a boba tea and walk hand-in-hand</div><span class="bucket-tag">cute</span></div>
+      <div class="bucket-item" onclick="toggleBucket(this)" data-key="b5"><div class="bucket-check">&#x2713;</div><div class="bucket-text">Find a love lock spot & leave our mark</div><span class="bucket-tag">romantic</span></div>
+      <div class="bucket-item" onclick="toggleBucket(this)" data-key="b6"><div class="bucket-check">&#x2713;</div><div class="bucket-text">K-drama binge night with Korean snacks</div><span class="bucket-tag">cozy</span></div>
+      <div class="bucket-item" onclick="toggleBucket(this)" data-key="b7"><div class="bucket-check">&#x2713;</div><div class="bucket-text">Explore Ponce City Market together</div><span class="bucket-tag">explore</span></div>
+      <div class="bucket-item" onclick="toggleBucket(this)" data-key="b8"><div class="bucket-check">&#x2713;</div><div class="bucket-text">Taste 150+ Coca-Cola flavors at World of Coca-Cola</div><span class="bucket-tag">fun</span></div>
+      <div class="bucket-item" onclick="toggleBucket(this)" data-key="b9"><div class="bucket-check">&#x2713;</div><div class="bucket-text">See the whale sharks at Georgia Aquarium</div><span class="bucket-tag">adventure</span></div>
+      <div class="bucket-item" onclick="toggleBucket(this)" data-key="b10"><div class="bucket-check">&#x2713;</div><div class="bucket-text">Have a fancy dinner — just the two of us</div><span class="bucket-tag">romantic</span></div>
+      <div class="bucket-item" onclick="toggleBucket(this)" data-key="b11"><div class="bucket-check">&#x2713;</div><div class="bucket-text">Take a spontaneous road trip detour</div><span class="bucket-tag">adventure</span></div>
+      <div class="bucket-item" onclick="toggleBucket(this)" data-key="b12"><div class="bucket-check">&#x2713;</div><div class="bucket-text">Stargaze from Pretty Place chapel</div><span class="bucket-tag">dreamy</span></div>
+    </div>
+
+    <div class="spotify-section">
+      <h3 style="font-family:'Noto Serif Display',serif;font-weight:300;font-size:1.3rem;color:var(--charcoal);margin-bottom:1rem;margin-top:3rem">Our <em style="font-style:italic;color:var(--accent-dark)">Soundtrack</em></h3>
+      <p style="font-size:12px;color:var(--text-soft);margin-bottom:1rem">A playlist for the road, the walks, and the quiet moments.</p>
+      <iframe style="border-radius:16px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX9Ol4tZWPH6V?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
   </div>
 
   <!-- MEMORIES -->
   <div class="tab" id="tab-memories">
     <div class="memories-hero">
-      <div class="memories-hero-title">Our Board 🐰</div>
+      <div class="memories-hero-title">Our Board</div>
       <div class="memories-hero-sub">Drop your pics & videos — anyone can add</div>
     </div>
-
     <div class="mem-name-row">
-      <input class="mem-name-input" id="mem-uploader" type="text" placeholder="Your name (e.g. Jarvis, Maya…)" maxlength="30" />
-      <input class="mem-name-input mem-caption-input" id="mem-caption" type="text" placeholder="Add a caption… (optional)" maxlength="120" />
+      <input class="mem-name-input" id="mem-uploader" type="text" placeholder="Your name (e.g. Jarvis, Maya...)" maxlength="30" />
+      <input class="mem-name-input mem-caption-input" id="mem-caption" type="text" placeholder="Add a caption... (optional)" maxlength="120" />
       <button class="mem-upload-btn" onclick="document.getElementById('mem-file-input').click()">+ Add</button>
       <input type="file" id="mem-file-input" accept="image/*,video/*" multiple style="display:none" onchange="handleMemFiles(this.files)" />
     </div>
-
     <div class="upload-zone" id="mem-drop-zone">
       <input type="file" accept="image/*,video/*" multiple onchange="handleMemFiles(this.files)" />
-      <div class="upload-icon">📷</div>
+      <div class="upload-icon">&#x1f4f7;</div>
       <div class="upload-title">Drag & drop your memories here</div>
-      <div class="upload-sub">Photos and videos welcome · Saved in your browser</div>
+      <div class="upload-sub">Photos and videos welcome &middot; Saved in your browser</div>
     </div>
-
     <div class="mem-count" id="mem-count"></div>
     <div class="mem-board" id="mem-board">
       <div class="mem-empty" id="mem-empty">
-        <div class="mem-empty-icon">🌸</div>
+        <div class="mem-empty-icon">&#x1f338;</div>
         <div class="mem-empty-text">No memories yet — be the first to add one</div>
       </div>
     </div>
@@ -1761,7 +510,13 @@
 
 </div>
 
+<footer class="site-footer">
+  <div>Made with <span class="footer-heart">&#x2661;</span> for us</div>
+  <div class="footer-korean">你的笑容让我的每一天都更加美好</div>
+</footer>
+
 <script>
+// ── TAB SWITCHING ──
 function showTab(id, btn) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -1769,7 +524,91 @@ function showTab(id, btn) {
   btn.classList.add('active');
 }
 
-// Restaurant data
+// ── CHERRY BLOSSOM PETALS ──
+(function(){
+  var c=document.getElementById('petals');
+  for(var i=0;i<20;i++){
+    var p=document.createElement('div');
+    p.className='petal';
+    p.style.left=Math.random()*100+'%';
+    p.style.animationDuration=(6+Math.random()*8)+'s';
+    p.style.animationDelay=(Math.random()*12)+'s';
+    p.style.fontSize=(8+Math.random()*6)+'px';
+    c.appendChild(p);
+  }
+})();
+
+// ── COUNTDOWN ──
+function updateCountdown(){
+  var target=new Date('2026-04-09T18:00:00').getTime();
+  var now=Date.now();
+  var diff=target-now;
+  if(diff<=0){
+    document.getElementById('cd-days').textContent='0';
+    document.getElementById('cd-hours').textContent='0';
+    document.getElementById('cd-mins').textContent='0';
+    document.getElementById('cd-secs').textContent='0';
+    document.querySelector('.countdown-label').textContent='Our adventure has begun!';
+    return;
+  }
+  var d=Math.floor(diff/(1000*60*60*24));
+  var h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  var m=Math.floor((diff%(1000*60*60))/(1000*60));
+  var s=Math.floor((diff%(1000*60))/1000);
+  document.getElementById('cd-days').textContent=d;
+  document.getElementById('cd-hours').textContent=h;
+  document.getElementById('cd-mins').textContent=m;
+  document.getElementById('cd-secs').textContent=s;
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+// ── LOVE LETTER ──
+function openLetter(){
+  var env=document.getElementById('envelope');
+  var letter=document.getElementById('letterContent');
+  env.querySelector('.envelope-body').classList.add('open');
+  env.classList.add('open');
+  setTimeout(function(){ letter.classList.add('show'); env.style.display='none'; },700);
+}
+
+// ── BUCKET LIST ──
+function toggleBucket(el){
+  el.classList.toggle('checked');
+  var key=el.dataset.key;
+  localStorage.setItem('bucket_'+key,el.classList.contains('checked')?'1':'0');
+}
+document.querySelectorAll('.bucket-item').forEach(function(el){
+  if(localStorage.getItem('bucket_'+el.dataset.key)==='1') el.classList.add('checked');
+});
+
+// ── TBD EDITABLE ──
+function editTbd(displayEl){
+  var wrapper=displayEl.parentElement;
+  wrapper.classList.add('editing');
+  var input=wrapper.querySelector('.tbd-input');
+  var key=wrapper.dataset.key;
+  var saved=localStorage.getItem('itinerary_tbd_'+key)||'';
+  input.value=saved;input.style.display='block';input.focus();
+}
+function saveTbd(inputEl){
+  var wrapper=inputEl.parentElement;
+  var key=wrapper.dataset.key;
+  var val=inputEl.value.trim();
+  localStorage.setItem('itinerary_tbd_'+key,val);
+  wrapper.classList.remove('editing');
+  inputEl.style.display='none';
+  var display=wrapper.querySelector('.tbd-display');
+  var savedText=display.querySelector('.tbd-saved-text');
+  if(val){display.classList.add('has-text');savedText.textContent=val;}
+  else{display.classList.remove('has-text');savedText.textContent='';}
+}
+document.querySelectorAll('.tbd-editable').forEach(function(w){
+  var key=w.dataset.key;
+  var saved=localStorage.getItem('itinerary_tbd_'+key)||'';
+  if(saved){var d=w.querySelector('.tbd-display');var s=d.querySelector('.tbd-saved-text');d.classList.add('has-text');s.textContent=saved;}
+});
+
 const restaurants = [
   { name:"Bao Bao Hao", rating:4, tag:"Cantonese", filter:"Chinese", review:"A really good Cantonese spot, the dishes had great wok hei and everything felt super flavorful!" },
   { name:"Ke Chuan Jiang Hu", rating:5, tag:"Sichuan", filter:"Chinese", review:"As a local, this is one of the places I go back to again and again. My whole family loves it, and it\u2019s basically never disappointing." },
@@ -2105,7 +944,6 @@ showTab = function(id, btn) {
   if (id === 'map') { setTimeout(initMap, 100); }
 };
 </script>
-
 <!-- Firebase SDKs -->
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
