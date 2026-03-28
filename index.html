@@ -380,6 +380,33 @@
   }
 
   /* ── RESTAURANTS ── */
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.8rem;
+  }
+  .filter-btn {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 0.45rem 1rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--text-soft);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .filter-btn:hover { border-color: var(--gold); color: var(--charcoal); }
+  .filter-btn.active {
+    background: var(--charcoal);
+    color: var(--gold-light);
+    border-color: var(--charcoal);
+    font-weight: 500;
+  }
+
   .resto-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -395,7 +422,11 @@
     transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
+
+  .resto-card.hidden { display: none; }
 
   .resto-card::before {
     content: '';
@@ -428,6 +459,7 @@
     font-family: 'Jost', sans-serif;
     font-weight: 500;
     border: 1px solid rgba(201,168,76,0.25);
+    align-self: flex-start;
   }
 
   .resto-name {
@@ -438,11 +470,13 @@
     line-height: 1.2;
   }
 
-  .resto-desc {
+  .resto-review {
     font-size: 12.5px;
     color: var(--text-soft);
     line-height: 1.65;
     font-weight: 300;
+    font-style: italic;
+    margin-top: 0.3rem;
   }
 
   .resto-stars {
@@ -451,15 +485,89 @@
     letter-spacing: 2px;
   }
 
-  .resto-detail {
-    font-size: 11.5px;
-    color: var(--text-soft);
-    margin-top: 0.4rem;
-    display: flex;
+  .resto-map-btn {
+    display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
+    margin-top: 0.8rem;
+    background: var(--charcoal);
+    color: var(--gold-light);
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 0.9rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    align-self: flex-start;
+  }
+  .resto-map-btn:hover {
+    background: var(--gold-dark);
+    transform: translateY(-1px);
+  }
+
+  .resto-comments {
+    margin-top: auto;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--border);
+    margin-top: 1rem;
+  }
+  .resto-comments-title {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    font-family: 'Jost', sans-serif;
+    margin-bottom: 0.5rem;
+  }
+  .resto-comment-list {
+    max-height: 120px;
+    overflow-y: auto;
+    margin-bottom: 0.5rem;
+  }
+  .resto-comment-item {
+    font-size: 12px;
+    color: var(--text);
+    line-height: 1.5;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid rgba(160,120,80,0.08);
     font-weight: 300;
   }
+  .resto-comment-form {
+    display: flex;
+    gap: 0.4rem;
+  }
+  .resto-comment-input {
+    flex: 1;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.4rem 0.6rem;
+    font-size: 11.5px;
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+  .resto-comment-input:focus { border-color: var(--gold); }
+  .resto-comment-input::placeholder { color: rgba(107,80,64,0.4); }
+  .resto-comment-submit {
+    background: var(--gold);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 0.7rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .resto-comment-submit:hover { background: var(--gold-dark); }
 
   /* ── THINGS TO DO ── */
   .activity-list { display: flex; flex-direction: column; gap: 1.1rem; }
@@ -906,50 +1014,19 @@
   <!-- RESTAURANTS -->
   <div class="tab" id="tab-restaurants">
     <h2 class="section-heading"><em>Dining</em> Guide</h2>
-    <p class="section-intro">A curated selection of Atlanta's most memorable dining experiences — from intimate dinners to lazy brunches.</p>
-    <div class="resto-grid">
-      <div class="resto-card">
-        <span class="resto-tag">Fine Dining</span>
-        <div class="resto-name">Bacchanalia</div>
-        <div class="resto-desc">Atlanta's most celebrated restaurant. Farm-to-table tasting menus in an intimate, art-filled space.</div>
-        <div class="resto-stars">🐰🐰🐰🐰🐰</div>
-        <div class="resto-detail">📍 Westside Provisions</div>
-      </div>
-      <div class="resto-card">
-        <span class="resto-tag">Rooftop Bar</span>
-        <div class="resto-name">STK Rooftop</div>
-        <div class="resto-desc">Skyline views, craft cocktails, and a lively upscale atmosphere. Perfect for sunset drinks.</div>
-        <div class="resto-stars">🐰🐰🐰🐰</div>
-        <div class="resto-detail">📍 Midtown Atlanta</div>
-      </div>
-      <div class="resto-card">
-        <span class="resto-tag">Brunch</span>
-        <div class="resto-name">The Optimist</div>
-        <div class="resto-desc">Coastal-inspired seafood in a converted warehouse. Their oysters and brunch are unforgettable.</div>
-        <div class="resto-stars">🐰🐰🐰🐰🐰</div>
-        <div class="resto-detail">📍 West Midtown</div>
-      </div>
-      <div class="resto-card">
-        <span class="resto-tag">Casual Gem</span>
-        <div class="resto-name">Ponce City Market</div>
-        <div class="resto-desc">Multi-vendor food hall with everything from ramen to tacos. Great for a relaxed afternoon.</div>
-        <div class="resto-stars">🐰🐰🐰🐰</div>
-        <div class="resto-detail">📍 Old Fourth Ward</div>
-      </div>
-      <div class="resto-card">
-        <span class="resto-tag">Basque</span>
-        <div class="resto-name">Cooks & Soldiers</div>
-        <div class="resto-desc">Basque-inspired pintxos and wood-fired dishes. A warm, romantic atmosphere with incredible wine.</div>
-        <div class="resto-stars">🐰🐰🐰🐰🐰</div>
-        <div class="resto-detail">📍 West Midtown</div>
-      </div>
-      <div class="resto-card">
-        <span class="resto-tag">Dessert</span>
-        <div class="resto-name">Sublime Doughnuts</div>
-        <div class="resto-desc">Legendary creative doughnuts — a sweet Atlanta institution that's worth every calorie.</div>
-        <div class="resto-stars">🐰🐰🐰🐰</div>
-        <div class="resto-detail">📍 Multiple Locations</div>
-      </div>
+    <p class="section-intro">My personal picks for the best eats in Atlanta — honest reviews, bunny-rated, and ready for your comments.</p>
+
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" onclick="filterRestos('All', this)">All</button>
+      <button class="filter-btn" onclick="filterRestos('Chinese', this)">Chinese</button>
+      <button class="filter-btn" onclick="filterRestos('Korean', this)">Korean</button>
+      <button class="filter-btn" onclick="filterRestos('Vietnamese', this)">Vietnamese</button>
+      <button class="filter-btn" onclick="filterRestos('BBQ', this)">BBQ</button>
+      <button class="filter-btn" onclick="filterRestos('Dessert & Drinks', this)">Dessert &amp; Drinks</button>
+      <button class="filter-btn" onclick="filterRestos('Brunch & Western', this)">Brunch &amp; Western</button>
+    </div>
+
+    <div class="resto-grid" id="restoGrid">
     </div>
   </div>
 
@@ -1085,6 +1162,124 @@ function showTab(id, btn) {
   document.getElementById('tab-' + id).classList.add('active');
   btn.classList.add('active');
 }
+
+// Restaurant data
+const restaurants = [
+  { name:"Bao Bao Hao", rating:4, tag:"Cantonese", filter:"Chinese", review:"A really good Cantonese spot, the dishes had great wok hei and everything felt super flavorful!" },
+  { name:"Ke Chuan Jiang Hu", rating:5, tag:"Sichuan", filter:"Chinese", review:"As a local, this is one of the places I go back to again and again. My whole family loves it, and it\u2019s basically never disappointing." },
+  { name:"Da Feng Shou", rating:5, tag:"Hot Pot", filter:"Chinese", review:"Another family favorite that we revisit often. The food is consistently good, and it\u2019s one of those places that rarely misses. Great for hot pot, the spicy braised ribs and spicy chicken cubes are both super delicious, and the portions are huge." },
+  { name:"Pearl\u2019s Tea / Zhen Zhu Fang", rating:4, tag:"Dessert & Drinks", filter:"Dessert & Drinks", review:"If you\u2019re a real foodie, this place is worth trying too." },
+  { name:"Urban Hai", rating:4, tag:"Chinese", filter:"Chinese", review:"A Chinese restaurant in downtown Atlanta with really tasty roast duck. They also gave us a free soup, it tasted a bit like duck blood vermicelli soup." },
+  { name:"Bamee Tee", rating:4, tag:"Vietnamese", filter:"Vietnamese", review:"Lots of variety, from fried rice to noodles and vermicelli. The Bun Bo Hue was especially good \u2014 round thick noodles with a slight spicy kick. The shrimp sauce mixed vermicelli has a strong smell, but it\u2019s worth trying if you like shrimp sauce." },
+  { name:"Chili Spot", rating:5, tag:"Sichuan", filter:"Chinese", review:"No need to say too much, it\u2019s just very, very delicious." },
+  { name:"Hwangso Gopchang", rating:4, tag:"Korean", filter:"Korean", review:"Great place for beef intestines in Atlanta. Skip the set and just order the beef large intestine, plus the pork neck, fried rice, and seafood soup." },
+  { name:"Okiboru", rating:4, tag:"Japanese", filter:"Chinese", review:"Great ramen and dipping noodles. The dipping noodle broth is pretty salty, but if you\u2019ve never tried dipping noodles before, it\u2019s definitely a fun experience." },
+  { name:"Wong Kee BBQ & Peking Duck", rating:5, tag:"Cantonese", filter:"Chinese", review:"Ordered the roast duck and char siu, and both were excellent. The owner is from Taishan, so the flavors felt very authentic." },
+  { name:"Furong Tree Under", rating:4, tag:"Hot Pot", filter:"Chinese", review:"A great spot for maocai and spicy hot pot, both single-order and self-selection options are really good." },
+  { name:"Guest Appearance Jianghu", rating:5, tag:"BBQ", filter:"BBQ", review:"One of my favorite barbecue places, especially the sweet and sour pork and roasted beef skewers. My parents love it too." },
+  { name:"Chinese Skewers", rating:4, tag:"BBQ", filter:"BBQ", review:"The roasted skewers, roasted cold noodles, and sour and spicy wide rice noodles are all worth ordering." },
+  { name:"Kochi Maru", rating:4, tag:"BBQ", filter:"BBQ", review:"The sweet and sour pork, roasted skewers, and vermicelli are especially tasty." },
+  { name:"Urban Wu", rating:5, tag:"Sichuan", filter:"Chinese", review:"Highly recommend the boiled beef in chili sauce and stir-fried pork. I\u2019ve ordered the boiled beef so many times and even recommended it to friends." },
+  { name:"Da Gu Vermicelli", rating:4, tag:"Chinese", filter:"Chinese", review:"Nice place for vermicelli, with good options like vermicelli, Nanchang mixed rice noodles, crispy chicken, and couple\u2019s lung slices." },
+  { name:"Xi\u2019an Restaurant Midtown", rating:4, tag:"Chinese", filter:"Chinese", review:"Especially the rou jia mo, liang pi, and hand-pulled noodles." },
+  { name:"Xi\u2019an Restaurant Duluth", rating:4, tag:"Chinese", filter:"Chinese", review:"The chopped noodles, rou jia mo, and spicy chicken are all worth trying." },
+  { name:"Jang Su Jang", rating:5, tag:"Korean", filter:"Korean", review:"Great for Korean braised beef short ribs, the meat comes in huge pieces and feels super satisfying to eat." },
+  { name:"bbq.Chicken", rating:4, tag:"Korean", filter:"Korean", review:"Especially the cheese powder fried chicken, fried sweet potato sticks, stir-fried rice cakes, and pickled vegetable fried rice." },
+  { name:"Dish Korean Cuisine", rating:4, tag:"Korean", filter:"Korean", review:"The army stew and cheese chicken are both very good. Coming here for hot soup on a rainy day feels especially nice." },
+  { name:"D92", rating:4, tag:"Korean BBQ", filter:"Korean", review:"A good all-you-can-eat Korean BBQ place, with plenty of food and drinks too." },
+  { name:"Pho Dai Loi 2", rating:4, tag:"Vietnamese", filter:"Vietnamese", review:"A reliable spot for Vietnamese pho." },
+  { name:"Little Alley Steak", rating:4, tag:"Western", filter:"Brunch & Western", review:"Great for steak and red wine, a nice place for a more special meal." },
+  { name:"Capital Grille", rating:5, tag:"Western", filter:"Brunch & Western", review:"A classic steakhouse, highly recommend the filet mignon and caramel pudding. For special occasions they\u2019ll even give you a small cake." },
+  { name:"Moo Tea", rating:4, tag:"Dessert & Drinks", filter:"Dessert & Drinks", review:"Their European bread and roast pork buns are both really good, basically every flavor was tasty." },
+  { name:"Lemon Sweets", rating:4, tag:"Dessert & Drinks", filter:"Dessert & Drinks", review:"Especially the cake box. The desserts are not overly sweet, which I really like." },
+  { name:"Xian Yu Xian", rating:4, tag:"Dessert & Drinks", filter:"Dessert & Drinks", review:"Good for dessert, especially the red bean soup and taro balls." },
+  { name:"Con Gusto", rating:4, tag:"Dessert & Drinks", filter:"Dessert & Drinks", review:"A lovely cake shop, the decorated cakes are super pretty and the taste is also good." },
+  { name:"A.M. Sweet Creations", rating:4, tag:"Dessert & Drinks", filter:"Dessert & Drinks", review:"A great option for birthday cakes, they can make many different cake styles." },
+  { name:"Liuli", rating:4, tag:"Dessert & Drinks", filter:"Dessert & Drinks", review:"Especially the jasmine fragrance and warm autumn drinks. People who like strong tea-flavored milk tea will enjoy it." },
+  { name:"Tea Leaf & Creamery", rating:4, tag:"Dessert & Drinks", filter:"Dessert & Drinks", review:"A fun spot for milk tea and ice cream, with good egg waffles and sea bass pancakes." },
+  { name:"Auburn Angel", rating:3, tag:"Brunch", filter:"Brunch & Western", review:"Brunch here was amazing, definitely order the CHICKEN N DOUGHNUTS!" },
+  { name:"Delbar Buckhead", rating:3, tag:"Middle Eastern", filter:"Brunch & Western", review:"A beautiful Middle Eastern restaurant with a lovely interior and great food." },
+  { name:"Sun in My Belly", rating:4, tag:"Brunch", filter:"Brunch & Western", review:"The portions are huge, and even the coffee cup was almost as big as my palm." },
+  { name:"Jang Su Jang Duluth", rating:5, tag:"Korean", filter:"Korean", review:"This branch might really be the best. Nothing we ordered disappointed, and the side dishes are always delicious." },
+  { name:"Pepper Spot", rating:3, tag:"Chinese", filter:"Chinese", review:"The sweet water duck was a little too sweet but still tasty, and the green pepper beef tongue was surprisingly good." },
+  { name:"Brunch at Peony", rating:4, tag:"Brunch", filter:"Brunch & Western", review:"The food was good, but it\u2019s in Suwanee, which feels a bit far if you live in midtown." },
+  { name:"Egg Harbor Cafe", rating:3, tag:"Brunch", filter:"Brunch & Western", review:"A fairly standard brunch spot, neither especially good nor bad." },
+  { name:"Kabobs House", rating:4, tag:"Middle Eastern", filter:"Brunch & Western", review:"Really delicious, lamb soup with baked buns, and the sweet and sour pork was super crispy." },
+  { name:"Luella", rating:3, tag:"Western", filter:"Brunch & Western", review:"The oysters were very fresh and the tiramisu with chocolate crisps was a nice touch, but other dishes were average. Beautiful decor but very loud." }
+];
+
+function slugify(str) {
+  return str.replace(/[^a-zA-Z0-9]/g, '_');
+}
+
+function getComments(name) {
+  try {
+    return JSON.parse(localStorage.getItem('comments_' + slugify(name)) || '[]');
+  } catch(e) { return []; }
+}
+
+function saveComment(name, text) {
+  const comments = getComments(name);
+  comments.push(text);
+  localStorage.setItem('comments_' + slugify(name), JSON.stringify(comments));
+}
+
+function renderComments(name) {
+  const el = document.getElementById('cl_' + slugify(name));
+  if (!el) return;
+  const comments = getComments(name);
+  el.innerHTML = comments.map(c => '<div class="resto-comment-item">' + c.replace(/</g,'&lt;') + '</div>').join('');
+}
+
+function submitComment(name) {
+  const input = document.getElementById('ci_' + slugify(name));
+  if (!input) return;
+  const text = input.value.trim();
+  if (!text) return;
+  saveComment(name, text);
+  input.value = '';
+  renderComments(name);
+}
+
+function buildCards() {
+  const grid = document.getElementById('restoGrid');
+  grid.innerHTML = restaurants.map(r => {
+    const bunnies = '\uD83D\uDC30'.repeat(r.rating);
+    const mapUrl = 'https://www.google.com/maps/search/' + encodeURIComponent(r.name + ' Atlanta GA');
+    const slug = slugify(r.name);
+    const comments = getComments(r.name);
+    const commentHtml = comments.map(c => '<div class="resto-comment-item">' + c.replace(/</g,'&lt;') + '</div>').join('');
+    return '<div class="resto-card" data-filter="' + r.filter + '">' +
+      '<span class="resto-tag">' + r.tag + '</span>' +
+      '<div class="resto-name">' + r.name + '</div>' +
+      '<div class="resto-stars">' + bunnies + '</div>' +
+      '<div class="resto-review">\u201C' + r.review + '\u201D</div>' +
+      '<a class="resto-map-btn" href="' + mapUrl + '" target="_blank">\uD83D\uDCCD Open in Google Maps</a>' +
+      '<div class="resto-comments">' +
+        '<div class="resto-comments-title">\uD83D\uDCAC Comments</div>' +
+        '<div class="resto-comment-list" id="cl_' + slug + '">' + commentHtml + '</div>' +
+        '<div class="resto-comment-form">' +
+          '<input class="resto-comment-input" id="ci_' + slug + '" placeholder="Leave a comment\u2026" onkeydown="if(event.key===\'Enter\')submitComment(\'' + r.name.replace(/'/g,"\\'") + '\')">' +
+          '<button class="resto-comment-submit" onclick="submitComment(\'' + r.name.replace(/'/g,"\\'") + '\')">Post</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function filterRestos(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.resto-card').forEach(card => {
+    if (cat === 'All' || card.dataset.filter === cat) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+
+buildCards();
 </script>
 </body>
 </html>
