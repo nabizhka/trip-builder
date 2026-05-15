@@ -1,0 +1,43 @@
+export const metadata = { title: 'About — wuhei·hei' };
+
+export default function AboutPage() {
+  return (
+    <section className="page page-about">
+      <div className="spread">
+        <div className="leaf left">
+          <div className="folio">
+            <span>about · artist</span>
+            <span>03 / 05</span>
+          </div>
+          <dl className="facts">
+            <dt>Based</dt><dd>Atlanta, Georgia</dd>
+            <dt>Degree</dt><dd>BFA · Illustration</dd>
+            <dt>Mascot</dt><dd>the sheep</dd>
+            <dt>Pronouns</dt><dd>she / her</dd>
+          </dl>
+          <a className="cta-pill" href="/FeifanLiResume.pdf" download="FeifanLi_Resume.pdf" target="_blank" rel="noopener">
+            Download CV <span className="arrow">↓</span>
+          </a>
+        </div>
+        <div className="leaf right">
+          <h1 className="display">Hi,<br />I&apos;m <em>Feifan</em></h1>
+          <p className="lede">
+            3D animator and concept artist with experience in video editing
+            and production. I bring a cross-cultural perspective — making
+            visuals that are adaptable, accessible, and engaging.
+          </p>
+          <div className="tools-pills">
+            <span className="hl">Blender</span>
+            <span className="hl">After Effects</span>
+            <span className="hl">Photoshop</span>
+            <span>Illustrator</span>
+            <span>Procreate</span>
+            <span>Three.js</span>
+            <span>GSAP</span>
+            <span>Python</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

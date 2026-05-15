@@ -1,0 +1,38 @@
+import ContactForm from '@/components/ContactForm';
+
+export const metadata = { title: 'Contact — wuhei·hei' };
+
+export default function ContactPage() {
+  return (
+    <section className="page page-contact">
+      <div className="spread">
+        <div className="leaf left">
+          <div className="folio">
+            <span>contact · say hello</span>
+            <span>05 / 05</span>
+          </div>
+          <h1 className="display">Let&apos;s<br /><em>talk.</em></h1>
+          <p className="lede">Open to commissions, collaborations, and interesting projects.</p>
+          <div className="socials">
+            <a className="social" href="https://www.instagram.com/wuhei_hei/" target="_blank" rel="noopener noreferrer">Instagram <span>↗</span></a>
+            <a className="social" href="https://twitter.com/FeifanLi1713088" target="_blank" rel="noopener noreferrer">Twitter <span>↗</span></a>
+            <a className="social" href="mailto:hello@wuheicreates.com">Email <span>↗</span></a>
+            <a className="social" href="https://wuheicreates.com" target="_blank" rel="noopener noreferrer">Website <span>↗</span></a>
+          </div>
+          <div className="map-card">
+            <iframe
+              title="Atlanta, GA"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212944.8067947757!2d-84.55949858286948!3d33.76727163553772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5045d6993098d%3A0x66fede2f990b630b!2sAtlanta%2C%20GA!5e0!3m2!1sen!2sus!4v1716000000000"
+              width="100%" height="100%"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+        <div className="leaf right">
+          <ContactForm />
+        </div>
+      </div>
+    </section>
+  );
+}

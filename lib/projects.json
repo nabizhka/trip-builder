@@ -1,0 +1,533 @@
+{
+  "categories": [
+    { "id": "story", "label": "Story & Concept" },
+    { "id": "illust", "label": "Illustration" },
+    { "id": "animation", "label": "Animation" },
+    { "id": "other", "label": "Other Artworks" },
+    { "id": "sketch", "label": "Sketchbooks" },
+    { "id": "product", "label": "Product Designs" }
+  ],
+  "projects": [
+    {
+      "id": "aig-mural",
+      "cat": "story",
+      "catLabel": "Story & Concept",
+      "title": "AIG Mural",
+      "description": "",
+      "cover": "https://static.wixstatic.com/media/bce868_38c66c027d774a43b1c2d08c6b15b0f6~mv2.png",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_38c66c027d774a43b1c2d08c6b15b0f6~mv2.png",
+        "https://static.wixstatic.com/media/bce868_bcefc47e42fe48139d1998560b1ef471~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_6b91945e8da8460d8dc3a3e87d0716c2~mv2.png",
+        "https://static.wixstatic.com/media/bce868_d39361ad43ff433d92ce24c96fdf7603~mv2.png",
+        "https://static.wixstatic.com/media/bce868_319a47ec41074b04a6618fedcf012bb8~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_40696025f81b41748e8433f7537bf362~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_56e71566a3b44652982d4f46e2c17cc3~mv2.jpeg"
+      ]
+    },
+    {
+      "id": "my-project-ae1904",
+      "cat": "story",
+      "catLabel": "Story & Concept",
+      "title": "Prefabricated Dreams",
+      "description": "Prefabricated Dreams is a satirical pixel-style game critiquing shortcut culture and the sleep economy. Players raise Mono, a cute alien-like pet that thrives on store-bought dream supplements—but shortcuts come at a cost. Push too far, and Mono may turn dangerous, revealing the darker secrets of a society that masks control beneath its friendly façade.",
+      "cover": "https://static.wixstatic.com/media/bce868_24696ab3e92a42cab99ef04ac9430d97~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_24696ab3e92a42cab99ef04ac9430d97~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_683779fd239341e4a8456b0da6df6683~mv2.png",
+        "https://static.wixstatic.com/media/bce868_8ac4555832a14c09a550ecf217f91900~mv2.png",
+        "https://static.wixstatic.com/media/bce868_6b3521d1c35f45cba9f8f89e2b665635~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_a41d1493eb9240378299dec7cb733690~mv2.png",
+        "https://static.wixstatic.com/media/bce868_ff0b425d6cec4c67b3a5231577324fc0~mv2.png",
+        "https://static.wixstatic.com/media/bce868_b1bb53f7ecec4c1490e2cedc3d1c21a9~mv2.png",
+        "https://static.wixstatic.com/media/bce868_e37bf5069b0f4fbb834401fe3c42583b~mv2.png",
+        "https://static.wixstatic.com/media/bce868_b240a2f769f74f3ba6c712288b54e16e~mv2.png",
+        "https://static.wixstatic.com/media/bce868_957b4a9f993a4790bb71d35153ea99d4~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_6d7acfdde11a460bbac6cd3451805c72~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_60f3f83c901f47c393ffbf90d34cd214~mv2.png"
+      ]
+    },
+    {
+      "id": "scadpro-x-lowes",
+      "cat": "story",
+      "catLabel": "Story & Concept",
+      "title": "SCADpro x LOWE'S",
+      "description": "",
+      "cover": "https://static.wixstatic.com/media/bce868_c7bf2b5fb5d54e7494e986c21ba4e5fa~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_c7bf2b5fb5d54e7494e986c21ba4e5fa~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_04f7945ed0564d8095d65ad54e1d92f4~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_476269389b644caeaba6ca353fe5f309~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_0e7a67d719c24c1db2f9061cd74ce8b3~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_ae617943b0264964a42aa88df03b1bcc~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_0fc10ad9b4144744af6de795c33cf319~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_62533045cf8c41c6927b2d3271d65643~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_9e9f636ca609476083bcf2aeb7729ad4~mv2.png",
+        "https://static.wixstatic.com/media/bce868_3a99644be2914d0493bf402696ae5e02~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_ef5b93b168ff4e87a1ba79173507da8a~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_bb51588eb9d64ac3b687db49884bb4a1~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_8b5ad53ee252416ba65b23d17d8c6d16~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_ee589c215f0448ff8df9b3d0197e7ea5~mv2.jpg"
+      ]
+    },
+    {
+      "id": "interstellar-pirates",
+      "cat": "story",
+      "catLabel": "Story & Concept",
+      "title": "Interstellar Pirates",
+      "description": "In this project, the focus was developing a trio of characters whose styling and costumes reflect a pirate crew dynamic while showcasing their unique individualities.",
+      "cover": "https://static.wixstatic.com/media/bce868_b9cc81fa058d43269c9b34c2ed2ef8b4~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_b9cc81fa058d43269c9b34c2ed2ef8b4~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_e1737a37057646d68135ac7f99cf7f34~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_fe46541e72a044b680ab71767ef76781~mv2.jpg"
+      ]
+    },
+    {
+      "id": "rumplestiltskin-and-pharaoh-cats",
+      "cat": "story",
+      "catLabel": "Story & Concept",
+      "title": "Rumplestiltskin and Pharaoh Cats",
+      "description": "Through a series of storyboards, this project brings a new twist to the classic fairytale, Rumplestiltskin, in a setting based in an ancient Egypt feline kingdom.",
+      "cover": "https://static.wixstatic.com/media/bce868_6485e09ea5164a8caf9c263f21effb44~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_6485e09ea5164a8caf9c263f21effb44~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_f29e5261798c4971a99e8cd66e3aaeae~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_1d7c213ce39b494685de15bb63203255~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_882e4d03c646496b8c5ac0bec7ba09d5~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_0acf8d6d042c46bfb97114be34fefcc9~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_53b49ca012f74e6f95e7495a00bc4a70~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_2743caf5e2c44247ace22537d2e51fd9~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_1a69e98454af4e0cb4b2e30da7c2dfde~mv2.jpg"
+      ]
+    },
+    {
+      "id": "skzoo-chk-chk-boom-mv-storyboard",
+      "cat": "story",
+      "catLabel": "Story & Concept",
+      "title": "Skzoo Chk Chk Boom MV Storyboard",
+      "description": "The Skzoo Chk Chk Boom MV Storyboard project is a conceptual visualization of the storyline depicted in Stray Kid's live action music video for Chk Chk Boom. It aims to complete the narrative and enhance the flow of storytelling. Although it is an in-class project, the storyboard strives to capture the original color and scene vibes of the music video.",
+      "cover": "https://static.wixstatic.com/media/bce868_5c6204dcf74148199d4ca4484361708e~mv2.png",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_5c6204dcf74148199d4ca4484361708e~mv2.png",
+        "https://static.wixstatic.com/media/bce868_6e50c331ec0d4603a69c984a6e6684fe~mv2.jpg"
+      ]
+    },
+    {
+      "id": "imagined-space",
+      "cat": "story",
+      "catLabel": "Story & Concept",
+      "title": "Imagined Space",
+      "description": "This illustration project explores conceptualized architectures, inspired by the story project Cookie Baker, offering a unique and creative perspective on design and storytelling.",
+      "cover": "https://static.wixstatic.com/media/bce868_8d246e1f40e7463cbad40c15b41df6d6~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_8d246e1f40e7463cbad40c15b41df6d6~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_ea12d43512c74e5c932cc174dae3884e~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_8ebf847b6f0f444e807b699a5d0dd29d~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_63363d17382c45dca952e2b326465d3d~mv2.png"
+      ]
+    },
+    {
+      "id": "enemy-within",
+      "cat": "illust",
+      "catLabel": "Illustration",
+      "title": "Enemy Within",
+      "description": "",
+      "cover": "https://static.wixstatic.com/media/bce868_178a2b7a4bb64e639b46a4441e0851c4~mv2.png",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_178a2b7a4bb64e639b46a4441e0851c4~mv2.png",
+        "https://static.wixstatic.com/media/bce868_759e8dc67fd34ee5b75ed83064c16310~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_59e203f940114dd5a5e9926fd5fe3107~mv2.jpg"
+      ]
+    },
+    {
+      "id": "my-project-d4ec8d",
+      "cat": "illust",
+      "catLabel": "Illustration",
+      "title": "Portraits",
+      "description": "",
+      "cover": "https://static.wixstatic.com/media/bce868_c4e2017e6297403cb930f0a74502ea1f~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_c4e2017e6297403cb930f0a74502ea1f~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_ef67af0a469c4830ad0d92f6afc14292~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_4e17b9775b0f400bbe08cd2e2e0440e2~mv2.jpg"
+      ]
+    },
+    {
+      "id": "wheel-of-life",
+      "cat": "illust",
+      "catLabel": "Illustration",
+      "title": "Wheel of Life",
+      "description": "Wheel of Life, is an animated illustration masterpiece featuring two unique tarot card designs influenced by Asian mythology and Buddhism.",
+      "cover": "https://static.wixstatic.com/media/bce868_cf9e1f978a1e425f8c4c77f7f4957f32~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_cf9e1f978a1e425f8c4c77f7f4957f32~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_7ded9dad2bd3440094af354561c6aadd~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_0ff1f44552aa4b538370c230a8c67ee7~mv2.jpg"
+      ]
+    },
+    {
+      "id": "the-frog-tsarevna",
+      "cat": "illust",
+      "catLabel": "Illustration",
+      "title": "The Frog Tsarevna",
+      "description": "",
+      "cover": "https://static.wixstatic.com/media/bce868_67a4eac6a6074ba4a2ac6ef66863a380~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_67a4eac6a6074ba4a2ac6ef66863a380~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_9d9a16440de14cee9d96e19e3a05d762~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_1afad0a5f9304ac1a9f8d2e9a2cdec6e~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_5b19b16176af44fbbcf66bb7450d38ea~mv2.jpg"
+      ]
+    },
+    {
+      "id": "neurovision",
+      "cat": "illust",
+      "catLabel": "Illustration",
+      "title": "NeuroVision",
+      "description": "",
+      "cover": "https://static.wixstatic.com/media/bce868_f02cdd88340542f2b166b751f0573c96~mv2.jpeg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_f02cdd88340542f2b166b751f0573c96~mv2.jpeg",
+        "https://static.wixstatic.com/media/bce868_e3aa3b9b24e440da8b46e0cdfc60ff0d~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_1c7ba0e280534097bc9fd839af21b042~mv2.jpg"
+      ]
+    },
+    {
+      "id": "geisha-memoirs",
+      "cat": "illust",
+      "catLabel": "Illustration",
+      "title": "Geisha Memoirs",
+      "description": "",
+      "cover": "https://static.wixstatic.com/media/bce868_e8549965874b4903970425a3fe498172~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_e8549965874b4903970425a3fe498172~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_be840c3e5e37461b95743dae09810ae7~mv2.jpeg",
+        "https://static.wixstatic.com/media/bce868_a55d0e412f514eb1b6b5bc56d1f052a4~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_0cdf0a2cf463415a8c65022896e09938~mv2.jpeg"
+      ]
+    },
+    {
+      "id": "bookarium",
+      "cat": "illust",
+      "catLabel": "Illustration",
+      "title": "Bookarium",
+      "description": "Bookarium is an innovative concept design project that delves into the imaginative realm of an underwater luxury lounge with a cyber punk aesthetic. The project showcases detailed illustrations and designs of this fictional space, offering a unique and visually captivating experience for viewers.",
+      "cover": "https://static.wixstatic.com/media/bce868_93b2606ddf4e41c4bb83ccd3c331fff5~mv2.png",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_93b2606ddf4e41c4bb83ccd3c331fff5~mv2.png",
+        "https://static.wixstatic.com/media/bce868_1f18219e90b545c5be27239223fc295e~mv2.png",
+        "https://static.wixstatic.com/media/bce868_51d2177bc17e430ab8d7cea1527a0deb~mv2.png"
+      ]
+    },
+    {
+      "id": "corallife",
+      "cat": "animation",
+      "catLabel": "Animation",
+      "title": "CoralLife",
+      "description": "Vimeo: https://vimeo.com/1159207772/4ee05dc375",
+      "cover": "https://static.wixstatic.com/media/bce868_2ed43405109a4a5d868c71df0a092c94~mv2.png",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_2ed43405109a4a5d868c71df0a092c94~mv2.png",
+        "https://static.wixstatic.com/media/bce868_770d1b65bc60464083a7226e1ac65e55~mv2.png"
+      ]
+    },
+    {
+      "id": "hidden-gem",
+      "cat": "animation",
+      "catLabel": "Animation",
+      "title": "3D Animation Demo Reel",
+      "description": "",
+      "cover": "https://static.wixstatic.com/media/bce868_0f1350b3342d43c7aeec5fe6bf0ee6eff000.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_0f1350b3342d43c7aeec5fe6bf0ee6eff000.jpg"
+      ]
+    },
+    {
+      "id": "my-project",
+      "cat": "animation",
+      "catLabel": "Animation",
+      "title": "Collaboratives",
+      "description": "This collection features my contribution to various collaborative student projects",
+      "cover": "https://static.wixstatic.com/media/bce868_1fd52fa3037043c3804edd4bf879fb01~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_1fd52fa3037043c3804edd4bf879fb01~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_7c43fdfd753640dcb94b602fb76abf7a~mv2.png",
+        "https://static.wixstatic.com/media/bce868_b015419a66be482ea24a8d05361d8bf3~mv2.png",
+        "https://static.wixstatic.com/media/bce868_b0792af9edd64c8cabadc52ba47e3bba~mv2.png",
+        "https://static.wixstatic.com/media/bce868_6f988770e95d4bee9d5d9d7ddba50b79~mv2.png",
+        "https://static.wixstatic.com/media/bce868_d28ede3f91ac43ec8554fe66c2ae7401~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_c19f04f33465491dae78db4082ed4e2d~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_64480c30beea4fdbaddb9042fb72f355~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_84f1549d19f04ab69581188c8d586594~mv2.png",
+        "https://static.wixstatic.com/media/bce868_88b0439388e04d35925ea1739f59dc8c~mv2.png",
+        "https://static.wixstatic.com/media/bce868_fa0bfb514bce4e3585b12ba59681baaa~mv2.png",
+        "https://static.wixstatic.com/media/bce868_7a2f3453cdbe4ff9bf5987a4dd5da4b5~mv2.png",
+        "https://static.wixstatic.com/media/bce868_6f457af688e642548a70c2319a1f3f58f000.jpg",
+        "https://static.wixstatic.com/media/bce868_d538ffbb447f4142beece41956bc2ba6f000.jpg",
+        "https://static.wixstatic.com/media/bce868_a7725d35c3274cdebbfd79e96675dff8~mv2.jpg"
+      ]
+    },
+    {
+      "id": "cookie-baker",
+      "cat": "animation",
+      "catLabel": "Animation",
+      "title": "Cookie Baker",
+      "description": "Cookie Baker is an exciting new project that continues the storyline of the previous project, NEWBIE. This project will focus on the later career of the apprentice character, who has become an independent baker. The story will follow the character's journey from striving for perfection to learning to accept life's imperfections.",
+      "cover": "https://static.wixstatic.com/media/bce868_7d38178125b5428da5b036e891b63e55~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_7d38178125b5428da5b036e891b63e55~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_26ea6ecf66494bbaba5c3ecc18234c82f000.jpg",
+        "https://static.wixstatic.com/media/bce868_37223905c667467fbec899fbc7950212~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_1f77cb8d25a04d58b6c3d26cb9fce77f~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_042173ee2b2143e59eaf89d05624ba1c~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_f8077735d1f442f7bbf5c63045eec40d~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_97d178a8317b499cbef55fa62d97d4cf~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_7f2acf813c194d1a8e00f02d686c7b41~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_c7c6e5b496fa4d4584ff89d7aff17408~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_c1b14d53242c4f38b60298f9d407ad52~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_12765e33e6094c96a6c2f202ae6d30c7~mv2.jpg"
+      ]
+    },
+    {
+      "id": "project-title-2",
+      "cat": "animation",
+      "catLabel": "Animation",
+      "title": "It's Not Always Fun and Games",
+      "description": "This is my first personal storyboard project which has have concept arts developed upon the story. For the completion of this project, I created the main character design, posture drawings, a series of design for side characters, storyboard, and two colored concept illustration",
+      "cover": "https://static.wixstatic.com/media/bce868_dc669df9a4de4a8491579fab641c0834~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_dc669df9a4de4a8491579fab641c0834~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_07f352f1759b4a1e8b08920176d81cfa~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_efef9a4703e8439199ab5198fefa5f8b~mv2.png",
+        "https://static.wixstatic.com/media/bce868_48ddd63c47c94ff49a73379e88ff46fa~mv2.png"
+      ]
+    },
+    {
+      "id": "digital-persona",
+      "cat": "animation",
+      "catLabel": "Animation",
+      "title": "NEWBIE",
+      "description": "This project focuses on drafting fluid storytelling through animatics and building concrete character designs that reflects two distinctive persons. The storyboard animatics supposed to display the humorous acting and interacting between the two main characters.",
+      "cover": "https://static.wixstatic.com/media/bce868_8b6e2751450d4c939d3a79f1b81039b5~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_8b6e2751450d4c939d3a79f1b81039b5~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_3e3662650d004a35aa8b8da09d03edeb~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_8881a54807d3437a921a1c4b2cfb8268f000.jpg"
+      ]
+    },
+    {
+      "id": "project-title-1",
+      "cat": "animation",
+      "catLabel": "Animation",
+      "title": "Paradise",
+      "description": "This project is reminiscent of my childhood fascination with amusement part facilities, especially the Ferris wheel and the roller coaster. With a saturated, overwhelming color palette, the video aims to provoke an emotion of nostalgia and a feeling of loss.",
+      "cover": "https://static.wixstatic.com/media/bce868_4e78c307a342472d8c41970a75c75ddf~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_4e78c307a342472d8c41970a75c75ddf~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_13b462c691c1430b9615dc15a7fb8307~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_41c53aca8ab1448a88e8b25ecd0aa16e~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_be3f7cf954e949a69a01f23a634e9611~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_3c65beab573c4f1fbc53c5ee65b8b39c~mv2.jpg"
+      ]
+    },
+    {
+      "id": "project-title-6",
+      "cat": "animation",
+      "catLabel": "Animation",
+      "title": "Transformation",
+      "description": "This project is an experimental short animation, explores the transition between a human character and different animals. For this project, I have established a solid approach on character design, including postures, costumes and the character rotation.",
+      "cover": "https://static.wixstatic.com/media/bce868_85f0b3bf47f64c118250598f6d46727a~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_85f0b3bf47f64c118250598f6d46727a~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_0c849419fc73413aaa5ec79fcbdb239c~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_1cc3668ef2dc49f0b5bbd63820705098~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_a1371adf17ec451a97e420cead139c45~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_cdd8ff96c4b94b5389b782be2c679f7e~mv2.jpg"
+      ]
+    },
+    {
+      "id": "corallife-other",
+      "cat": "other",
+      "catLabel": "Other Artworks",
+      "title": "CoralLife",
+      "description": "Vimeo: https://vimeo.com/1159207772/4ee05dc375",
+      "cover": "https://static.wixstatic.com/media/bce868_2ed43405109a4a5d868c71df0a092c94~mv2.png",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_2ed43405109a4a5d868c71df0a092c94~mv2.png",
+        "https://static.wixstatic.com/media/bce868_770d1b65bc60464083a7226e1ac65e55~mv2.png"
+      ]
+    },
+    {
+      "id": "frozen-parody",
+      "cat": "other",
+      "catLabel": "Other Artworks",
+      "title": "Frozen Parody",
+      "description": "This project aims to produce a storyboard animatic for the Frozen Parody, 'Will You Help Me Hide a Body?' sourced from YouTube/@theavenger888. Watch on Youtube: https://youtu.be/LMbWF_RlEpQ",
+      "cover": "https://static.wixstatic.com/media/bce868_df810ef275e84d638b5ef05affac37c8~mv2.png",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_df810ef275e84d638b5ef05affac37c8~mv2.png",
+        "https://static.wixstatic.com/media/bce868_bd106754af4b4940afac165c6a7fa185f000.jpg"
+      ]
+    },
+    {
+      "id": "delivery-idol",
+      "cat": "other",
+      "catLabel": "Other Artworks",
+      "title": "Delivery Idol",
+      "description": "DeliveryIdol.net | YouTube: @DeliveryIdol",
+      "cover": "https://static.wixstatic.com/media/bce868_d69c902f522b41f08eb7b3471d919722~mv2.png",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_199646b866584cdc8f7d3221ba1951f8f000.jpg",
+        "https://static.wixstatic.com/media/bce868_d69c902f522b41f08eb7b3471d919722~mv2.png",
+        "https://static.wixstatic.com/media/bce868_26656a6cea224527891133f49a945512~mv2.png",
+        "https://static.wixstatic.com/media/bce868_fa91596726f8464b8baea3e6792b5b87~mv2.png",
+        "https://static.wixstatic.com/media/bce868_2f71f4fd803543298a547b70bcc5c77d~mv2.png",
+        "https://static.wixstatic.com/media/bce868_9aa81b2a575244c2b042e06c7353e448~mv2.png",
+        "https://static.wixstatic.com/media/bce868_a7aa598fd2904ba4be75161136dd3b0b~mv2.png",
+        "https://static.wixstatic.com/media/bce868_667b323d905e4c8eb71e4d0a5cae92f7f000.jpg",
+        "https://static.wixstatic.com/media/bce868_1a3debf21d0e432d843a26ddd241dd28f000.jpg",
+        "https://static.wixstatic.com/media/bce868_02d32610f63547bba2e40ea0962e7bb5f000.jpg"
+      ]
+    },
+    {
+      "id": "other-personal-artworks",
+      "cat": "other",
+      "catLabel": "Other Artworks",
+      "title": "Traditional Materials",
+      "description": "pastel/ watercolor/ markers/ charcoal/ plaster/ oil paint",
+      "cover": "https://static.wixstatic.com/media/bce868_77ac56b52b8c4b0dbe9961075c51aea1~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_77ac56b52b8c4b0dbe9961075c51aea1~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_368095cd161b44dda4cf3b6128f8796cf000.jpg",
+        "https://static.wixstatic.com/media/bce868_328f7b89e377402b85af7e26e5e2ba0d~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_2112f314065544aa85f01c1779436837~mv2.png",
+        "https://static.wixstatic.com/media/bce868_47875532369c4dc58826e48e9a02fcf6~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_f3ca8a5c411c40999cb96fa2aabd33d3~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_203452edcde54da488754e7baed52ab4~mv2.jpg"
+      ]
+    },
+    {
+      "id": "digital-sketchbook",
+      "cat": "sketch",
+      "catLabel": "Sketchbooks",
+      "title": "Sketchbook1",
+      "description": "",
+      "cover": "https://static.wixstatic.com/media/bce868_fb158450907243feab94f6af17d5bc13~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_fb158450907243feab94f6af17d5bc13~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_1c70f1360c88405a826ef6e7bddf9d09~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_1abc3ff4438247beb6efa077f9ed2ead~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_429303ff1ea247fa8fd1895be77deb02~mv2.png",
+        "https://static.wixstatic.com/media/bce868_176b882054c5412e85dc23aa09dd39db~mv2.png"
+      ]
+    },
+    {
+      "id": "mixed-media",
+      "cat": "sketch",
+      "catLabel": "Sketchbooks",
+      "title": "Sketchbook2",
+      "description": "",
+      "cover": "https://static.wixstatic.com/media/bce868_57e2dda7b27c409484cfc8ae6b5d2ec5~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_57e2dda7b27c409484cfc8ae6b5d2ec5~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_6aa8eb30d8d844cbbb9118cb75756d72~mv2.png",
+        "https://static.wixstatic.com/media/bce868_119404ec4ecf4da5a6da4f4bbe94eb89~mv2.png",
+        "https://static.wixstatic.com/media/bce868_7624b0355d8b4b80a8a55b7eda5c31ff~mv2.png",
+        "https://static.wixstatic.com/media/bce868_ab81f8d82ba348efb8ce8b911eafffe0~mv2.png",
+        "https://static.wixstatic.com/media/bce868_20f6d5096d0e489da05a77233423a887~mv2.png",
+        "https://static.wixstatic.com/media/bce868_051c8eb4f2aa4cbfba830caf233284f6~mv2.png",
+        "https://static.wixstatic.com/media/bce868_c22345a2457542c682b27a3de69fbfbb~mv2.png",
+        "https://static.wixstatic.com/media/bce868_148dcfba1f034e69b24838caa77663aa~mv2.png"
+      ]
+    },
+    {
+      "id": "sketchbook-3",
+      "cat": "sketch",
+      "catLabel": "Sketchbooks",
+      "title": "Sketchbook 3",
+      "description": "",
+      "cover": "https://static.wixstatic.com/media/bce868_3d2061613d3e49d1afd8acb34403cbd5~mv2.png",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_3d2061613d3e49d1afd8acb34403cbd5~mv2.png",
+        "https://static.wixstatic.com/media/bce868_0474609d9b6b4952b2edc24e7b0292d2~mv2.png",
+        "https://static.wixstatic.com/media/bce868_4e382f1ec3aa4d8faafe65012189f5db~mv2.png",
+        "https://static.wixstatic.com/media/bce868_15834961fedc46bc99dc06d7c63e2f9e~mv2.png",
+        "https://static.wixstatic.com/media/bce868_3b14f965a2ae479f882cdb741224d67b~mv2.png",
+        "https://static.wixstatic.com/media/bce868_5f92d9811eb24d38b9a4dfc5c8a979d3~mv2.png",
+        "https://static.wixstatic.com/media/bce868_86ebc7c2c308440ea64f8653cfa7749a~mv2.png",
+        "https://static.wixstatic.com/media/bce868_ad9f744151344a5b98c97adc0e400cc8~mv2.png",
+        "https://static.wixstatic.com/media/bce868_777a201121c54f67b2f05deaf3ca85e3~mv2.png",
+        "https://static.wixstatic.com/media/bce868_31d6bc56cd984ec08e3d2ae483b325ff~mv2.png",
+        "https://static.wixstatic.com/media/bce868_c6ccd53b20744909b7ccb4f0f5cc9b16~mv2.png",
+        "https://static.wixstatic.com/media/bce868_e482f7077e854aef932a22e70a5f5281~mv2.png",
+        "https://static.wixstatic.com/media/bce868_78337a347424440f99baba25a7d4518a~mv2.png",
+        "https://static.wixstatic.com/media/bce868_7e2cab6f52a242bba0efdf89ab95f649~mv2.png"
+      ]
+    },
+    {
+      "id": "figure-drawings",
+      "cat": "sketch",
+      "catLabel": "Sketchbooks",
+      "title": "Figure drawings",
+      "description": "",
+      "cover": "https://static.wixstatic.com/media/bce868_0ba5e480d7a84b1e857c8d38e0eb285b~mv2.png",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_0ba5e480d7a84b1e857c8d38e0eb285b~mv2.png",
+        "https://static.wixstatic.com/media/bce868_6e0872f771ea4b35a1e98fba62dcad85~mv2.png",
+        "https://static.wixstatic.com/media/bce868_119389d9a9b74dc49903b466470258f2~mv2.png",
+        "https://static.wixstatic.com/media/bce868_c7236043fc6849689f182f1d122d4e68~mv2.png",
+        "https://static.wixstatic.com/media/bce868_348ee7afc5924f8fa513f1b8cb85b743~mv2.png",
+        "https://static.wixstatic.com/media/bce868_64d9379ac299438fb355944da4d16e65~mv2.png",
+        "https://static.wixstatic.com/media/bce868_8fd2f1a71e9a4ff5ab4db589b17b4f26~mv2.png",
+        "https://static.wixstatic.com/media/bce868_ca67f25714784a0cbfb610e2499d4ff4~mv2.png",
+        "https://static.wixstatic.com/media/bce868_f8d419672e1048c3993c324e7969d0b9~mv2.png",
+        "https://static.wixstatic.com/media/bce868_3a7b182da47849d192b5bdbe05f87971~mv2.png",
+        "https://static.wixstatic.com/media/bce868_6a53c7eb616e43feaaea211dd6593c20~mv2.png",
+        "https://static.wixstatic.com/media/bce868_fc8ad377a50d4fcf86d5d38a9056d1d3~mv2.png",
+        "https://static.wixstatic.com/media/bce868_80475a083e41475284e36dd29b43f98f~mv2.png",
+        "https://static.wixstatic.com/media/bce868_74020621266b400ea1e68143eef1ea41~mv2.png",
+        "https://static.wixstatic.com/media/bce868_99caa4e2f45e47d190be1bec695b186f~mv2.png",
+        "https://static.wixstatic.com/media/bce868_e7407a5559ac411484a9708feaa780d0~mv2.png",
+        "https://static.wixstatic.com/media/bce868_713116a60e304d9db5c70a53b85c6729~mv2.png",
+        "https://static.wixstatic.com/media/bce868_972099dd8c994032b7c3ac042deffb09~mv2.png",
+        "https://static.wixstatic.com/media/bce868_ded48bbf698f43a7930b3316e21f1df8~mv2.png",
+        "https://static.wixstatic.com/media/bce868_ce957392ca804c489c6168ef32d4d8ac~mv2.png",
+        "https://static.wixstatic.com/media/bce868_54f3f1ce591c486b9762f64bff5219f5~mv2.png"
+      ]
+    },
+    {
+      "id": "a-tiger-cub",
+      "cat": "product",
+      "catLabel": "Product Designs",
+      "title": "A Tiger Cub",
+      "description": "A Tiger Cub Animation is an educational, family-friendly short-form series that follows the evolving stories of its main character, Bojii, alongside his family and friends. Through narratives about growth, the series explores the complexity and depth of love and support that can emerge from a cross-cultural background.",
+      "cover": "https://static.wixstatic.com/media/bce868_a920da6733f0443f85db0ace44ccc5cc~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_a920da6733f0443f85db0ace44ccc5cc~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_3f8b657eaa3841a2b7c9ccd1597d3a78~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_fcaf4c1179754f7d951e9d9b9bff9e88~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_4491336586bb43759b396b26ed982767~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_ce34ffe111c64086937dc75973bf52ce~mv2.png",
+        "https://static.wixstatic.com/media/bce868_0f031180b1e540889c0219cc06f4b8ca~mv2.png",
+        "https://static.wixstatic.com/media/bce868_5a889e704cbb4245931903b9c98d7149~mv2.png",
+        "https://static.wixstatic.com/media/bce868_bb168974ea2240108f28677aff5f255d~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_8849483e07eb4c10ba8bc3f3c0773e18~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_a1deab2fc5564219826026e92bf46850f000.jpg"
+      ]
+    },
+    {
+      "id": "illustration-mockups",
+      "cat": "product",
+      "catLabel": "Product Designs",
+      "title": "Magic Spoon",
+      "description": "",
+      "cover": "https://static.wixstatic.com/media/bce868_5987887fcbea442ab2bc57b4e1cdb31c~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/bce868_5987887fcbea442ab2bc57b4e1cdb31c~mv2.jpg",
+        "https://static.wixstatic.com/media/bce868_c23a510a90ab4841bf068c723ff3f69d~mv2.png",
+        "https://static.wixstatic.com/media/bce868_163d17f489224af5ab470309fc5d87e3~mv2.jpg"
+      ]
+    }
+  ]
+}

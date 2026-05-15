@@ -1,0 +1,51 @@
+import { PROJECTS, CATEGORIES, wixThumb } from '@/lib/projects';
+import Link from 'next/link';
+
+export const metadata = { title: 'Work — wuhei·hei' };
+
+export default function WorkPage() {
+  return (
+    <section className="page page-work">
+      <div className="work-header">
+        <div className="folio">
+          <span>work · selected projects</span>
+          <span>02 / 05</span>
+        </div>
+        <h1 className="display">
+          <em>Selected</em><br />works
+        </h1>
+        <p className="lede">Animation, illustration, concept art, and pixel worlds.</p>
+        <div className="chips">
+          {CATEGORIES.map(c => (
+            <a key={c.id} href={`#${c.id}`} className="chip">{c.label}</a>
+          ))}
+        </div>
+      </div>
+
+      <div className="work-grid">
+        {PROJECTS.map((p, i) => (
+          <Link
+            key={p.id}
+            href={`/projects/${p.id}`}
+            className={`tile span-${(i % 5) + 1}`}
+            data-project={p.id}
+          >
+            <img
+              src={wixThumb(p.cover, 640)}
+              alt={p.title}
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="tile-meta">
+              <div>
+                <div className="tile-title">{p.title}</div>
+                <div className="tile-tag">{p.catLabel}</div>
+              </div>
+              <span className="tile-num">{String(i + 1).padStart(2, '0')}</span>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}

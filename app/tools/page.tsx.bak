@@ -1,0 +1,39 @@
+export const metadata = { title: 'Tools — wuhei·hei' };
+
+const TOOLS = [
+  { id: 'converter', title: 'Video Converter', desc: 'FFmpeg.wasm — in-browser encoding to mp4/webm/mov/gif.' },
+  { id: 'subtitles', title: 'Subtitles',       desc: '.srt editor with timecode validation and export.' },
+  { id: 'palette',   title: 'Color Palette',   desc: 'Drop an image, extract its dominant colors.' },
+  { id: 'fps',       title: 'Frame Rate',      desc: 'Frames ↔ timecode ↔ seconds calculator.' },
+  { id: 'aspect',    title: 'Aspect Ratio',    desc: 'Resize calculator preserving aspect.' },
+  { id: 'sprites',   title: 'Sprite Slicer',   desc: 'Slice a sprite sheet into individual frames.' },
+  { id: 'easing',    title: 'Easing Curves',   desc: 'Visualise & copy bezier easing functions.' },
+];
+
+export default function ToolsPage() {
+  return (
+    <section className="page page-tools">
+      <div className="folio">
+        <span>tools · creative utilities</span>
+        <span>04 / 05</span>
+      </div>
+      <h1 className="display"><em>Creative</em><br />Tools</h1>
+      <p className="lede">
+        Browser-based utilities for animators and artists. No install needed.
+      </p>
+      <div className="tools-grid">
+        {TOOLS.map(t => (
+          <div key={t.id} className="tool-card">
+            <h3>{t.title}</h3>
+            <p>{t.desc}</p>
+            <span className="tool-status">Coming soon</span>
+          </div>
+        ))}
+      </div>
+      <p style={{ marginTop: 32, opacity: 0.6 }}>
+        Note: tool functionality is being migrated from the vanilla site (`tools.js`)
+        to React. The chip nav and pages are ready; FFmpeg.wasm integration ports next.
+      </p>
+    </section>
+  );
+}
